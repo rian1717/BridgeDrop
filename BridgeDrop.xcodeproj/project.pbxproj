@@ -37,7 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A10000000000000000000003 /* Kernport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kernport.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10000000000000000000003 /* KERNPORT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KERNPORT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A10000000000000000000013 /* BridgeDropShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = BridgeDropShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,7 +100,7 @@
 		A10000000000000000000007 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A10000000000000000000003 /* Kernport.app */,
+				A10000000000000000000003 /* KERNPORT.app */,
 				A10000000000000000000013 /* BridgeDropShareExtension.appex */,
 			);
 			name = Products;
@@ -131,7 +131,7 @@
 				A10000000000000000000002 /* BridgeDropCore */,
 			);
 			productName = BridgeDrop;
-			productReference = A10000000000000000000003 /* Kernport.app */;
+			productReference = A10000000000000000000003 /* KERNPORT.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A10000000000000000000015 /* BridgeDropShareExtension */ = {
@@ -252,7 +252,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.kernport.mac;
-				PRODUCT_NAME = Kernport;
+				PRODUCT_NAME = KERNPORT;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 6.0;
@@ -272,7 +272,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.kernport.mac;
-				PRODUCT_NAME = Kernport;
+				PRODUCT_NAME = KERNPORT;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;

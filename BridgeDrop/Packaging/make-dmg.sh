@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Package Kernport.app into a distributable .dmg.
+# Package KERNPORT.app into a distributable .dmg.
 #
-# A disk image rather than a .pkg installer: Kernport is a single self-contained
+# A disk image rather than a .pkg installer: KERNPORT is a single self-contained
 # .app with no privileged components, no LaunchDaemon and nothing to write
 # outside its own bundle, so there is nothing for an installer to do that
 # dragging to /Applications doesn't already do. `hdiutil` ships with macOS,
@@ -13,8 +13,8 @@ set -euo pipefail
 CONFIG="${1:-release}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 APP_DIR="$(dirname "$HERE")"
-APP="$APP_DIR/build/Kernport.app"
-OUT="$APP_DIR/build/Kernport-macOS.dmg"
+APP="$APP_DIR/build/KERNPORT.app"
+OUT="$APP_DIR/build/KERNPORT-macOS.dmg"
 
 # Always package what the current source produces. Reusing whatever happens to
 # be sitting in build/ is how a release ends up shipping a binary that doesn't
@@ -25,7 +25,7 @@ fi
 
 PLIST="$APP/Contents/Info.plist"
 BUILD_NUMBER="$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "$PLIST")"
-GIT_COMMIT="$(/usr/libexec/PlistBuddy -c "Print :KernportGitCommit" "$PLIST")"
+GIT_COMMIT="$(/usr/libexec/PlistBuddy -c "Print :KERNPORTGitCommit" "$PLIST")"
 VERSION="$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$PLIST")"
 
 echo "▶︎ Staging disk image contents…"
@@ -40,7 +40,7 @@ echo "▶︎ Building ${OUT}…"
 rm -f "$OUT"
 # UDZO = zlib-compressed, read-only: the standard for distribution.
 hdiutil create \
-    -volname "Kernport" \
+    -volname "KERNPORT" \
     -srcfolder "$STAGE" \
     -format UDZO \
     -ov -quiet \

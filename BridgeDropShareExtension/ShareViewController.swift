@@ -124,7 +124,7 @@ private final class ShareExtensionModel {
     private var urls: [URL] = []
     private var selectedDevice: BridgeDropDevice?
     private let engine = BridgeDropEngine(
-        deviceName: Host.current().localizedName ?? "Kernport Mac",
+        deviceName: Host.current().localizedName ?? "KERNPORT Mac",
         receiveDirectory: FileManager.default.temporaryDirectory)
 
     init() {
@@ -206,7 +206,7 @@ private struct ShareExtensionView: View {
                 Image(systemName: "arrow.left.arrow.right.circle.fill")
                     .font(.title2)
                     .foregroundStyle(.orange)
-                Text("Send with Kernport")
+                Text("Send with KERNPORT")
                     .font(.headline)
                 Spacer()
                 Button("Cancel", action: cancel)

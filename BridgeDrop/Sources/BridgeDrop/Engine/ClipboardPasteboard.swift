@@ -160,7 +160,7 @@ enum ClipboardPasteboard {
 
     private static func store(_ file: ClipFile) throws -> URL {
         let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("Kernport/Clipboard", isDirectory: true)
+            .appendingPathComponent("KERNPORT/Clipboard", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         let clean = ClipboardDecode.sanitizeFileName(file.name)
         var url = directory.appendingPathComponent(clean)
@@ -174,7 +174,7 @@ enum ClipboardPasteboard {
         try file.data.write(to: url, options: .atomic)
         var values = URLResourceValues()
         values.quarantineProperties = [
-            "LSQuarantineAgentName": "Kernport",
+            "LSQuarantineAgentName": "KERNPORT",
             "LSQuarantineType": "LSQuarantineTypeOtherDownload",
         ]
         var quarantined = url

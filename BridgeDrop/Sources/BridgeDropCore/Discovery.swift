@@ -257,7 +257,7 @@ private final class PublishObserver: NSObject, NetServiceDelegate, @unchecked Se
     }
 
     func netService(_ sender: NetService, didNotPublish errorDict: [String: NSNumber]) {
-        NSLog("Kernport: mDNS publish failed: \(errorDict)")
+        NSLog("KERNPORT: mDNS publish failed: \(errorDict)")
         report(false)
     }
 

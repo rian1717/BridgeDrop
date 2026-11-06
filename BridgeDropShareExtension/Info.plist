@@ -7,7 +7,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Kernport</string>
+	<string>KERNPORT</string>
 	<key>CFBundleName</key>
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundlePackageType</key>
@@ -21,7 +21,7 @@
 		<string>_FC9F5ED42C8A._tcp</string>
 	</array>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Kernport finds nearby Android devices and sends the files you selected.</string>
+	<string>KERNPORT finds nearby Android devices and sends the files you selected.</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
@@ -34,7 +34,7 @@
 			<key>NSExtensionServiceAllowsFinderPreviewItem</key>
 			<true/>
 			<key>NSExtensionServiceFinderPreviewLabel</key>
-			<string>Kernport</string>
+			<string>KERNPORT</string>
 		</dict>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>

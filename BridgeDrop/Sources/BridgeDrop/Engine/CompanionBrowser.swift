@@ -1,7 +1,7 @@
 import Foundation
 import Network
 
-/// Finds phones running the Kernport app. They advertise only while the
+/// Finds phones running the KERNPORT app. They advertise only while the
 /// screen is on, the same way an iPhone appears when its screen wakes.
 @MainActor
 final class CompanionBrowser {
@@ -48,7 +48,7 @@ final class CompanionBrowser {
     }
 }
 
-/// Sends files to the Kernport app on a paired phone.
+/// Sends files to the KERNPORT app on a paired phone.
 enum CompanionSender {
     static func send(files: [FileItem], host: String, port: Int, token: String,
                      progress: @escaping (Double) -> Void,
@@ -74,7 +74,7 @@ enum CompanionSender {
 
     private static func upload(_ file: FileItem, host: String, port: Int, token: String) throws {
         guard let url = URL(string: "http://\(host):\(port)/share") else {
-            throw NSError(domain: "Kernport", code: 0,
+            throw NSError(domain: "KERNPORT", code: 0,
                           userInfo: [NSLocalizedDescriptionKey: "The phone’s address could not be used."])
         }
         var request = URLRequest(url: url)
@@ -82,7 +82,7 @@ enum CompanionSender {
         request.timeoutInterval = 120
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         let encoded = file.name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "file"
-        request.setValue(encoded, forHTTPHeaderField: "X-Kernport-Name")
+        request.setValue(encoded, forHTTPHeaderField: "X-KERNPORT-Name")
         let wait = DispatchSemaphore(value: 0)
         var failure: Error?
         let task = URLSession.shared.uploadTask(with: request, fromFile: file.url) { _, response, error in
@@ -90,7 +90,7 @@ enum CompanionSender {
             if let error {
                 failure = error
             } else if !(200..<300).contains(code) {
-                failure = NSError(domain: "Kernport", code: code,
+                failure = NSError(domain: "KERNPORT", code: code,
                                   userInfo: [NSLocalizedDescriptionKey: "The phone did not accept \(file.name)."])
             }
             wait.signal()

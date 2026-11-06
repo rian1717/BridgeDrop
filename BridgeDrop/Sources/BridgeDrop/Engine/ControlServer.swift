@@ -45,7 +45,7 @@ final class ControlServer {
         let localPort = NWEndpoint.Port(rawValue: Self.port) ?? .any
         params.requiredLocalEndpoint = .hostPort(host: .ipv4(.loopback), port: localPort)
         guard let l = try? NWListener(using: params) else {
-            NSLog("Kernport control server: could not bind port \(Self.port)")
+            NSLog("KERNPORT control server: could not bind port \(Self.port)")
             return
         }
         listener = l

@@ -1,6 +1,6 @@
 # Contributing
 
-Kernport is a native macOS 26+ Swift 6 application. Changes should preserve
+KERNPORT is a native macOS 26+ Swift 6 application. Changes should preserve
 the no-account, no-cloud, bounded-memory design.
 
 ## Local checks
@@ -22,7 +22,7 @@ Real networking requires the packaged app:
 
 ```bash
 BridgeDrop/Packaging/build-app.sh debug
-open BridgeDrop/build/Kernport.app
+open BridgeDrop/build/KERNPORT.app
 ```
 
 ## Pull requests

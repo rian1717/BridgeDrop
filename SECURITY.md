@@ -14,7 +14,7 @@ Please allow 90 days for coordinated remediation before public disclosure.
 
 ## Security model
 
-Kernport accepts untrusted traffic from the local network. Every inbound frame,
+KERNPORT accepts untrusted traffic from the local network. Every inbound frame,
 device name, file name, declared size, and payload is treated as attacker
 controlled.
 
@@ -24,7 +24,7 @@ controlled.
 - Incoming lengths and collection counts are bounded before allocation.
 - Received names are reduced to safe leaf names and cannot choose a directory.
 - Files are written to temporary names and moved into place only after success.
-- URLs and text are saved as files; Kernport never opens received content.
+- URLs and text are saved as files; KERNPORT never opens received content.
 - The optional localhost control API is disabled by default and token protected.
 - Clipboard sync is off until enabled. The listener accepts only private LAN
   addresses, on Wi-Fi or Ethernet. A phone that knows the 8-digit code can
@@ -42,7 +42,7 @@ controlled.
   has no App Group; any local process that extracts it can ask the app to send
   files the app can read to a currently visible device.
 
-Kernport does not provide anonymity, protection from a compromised endpoint,
+KERNPORT does not provide anonymity, protection from a compromised endpoint,
 or a trusted persistent identity for native Quick Share peers.
 
 ## Supported versions

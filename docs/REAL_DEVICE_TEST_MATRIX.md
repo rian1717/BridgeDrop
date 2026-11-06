@@ -5,7 +5,7 @@ current Quick Share build. Complete this matrix for every release candidate.
 
 ## Record before testing
 
-- Kernport commit and build number
+- KERNPORT commit and build number
 - Mac model, macOS version, interface, and firewall/VPN state
 - Phone model, Android version, Google Play system update, Quick Share version
 - Router model, firmware, bands/SSIDs, and client-isolation setting
@@ -31,7 +31,7 @@ terminal process:
 
 ```bash
 Packaging/build-app.sh debug
-open build/Kernport.app
+open build/KERNPORT.app
 ```
 
 ## Per-device cases
@@ -63,12 +63,12 @@ another project’s compatibility report.
 ## Tonight: Galaxy S22 first pass
 
 Do this once the S22 is on the same Wi‑Fi as this MacBook Air (Mac14,2, macOS
-27.0 26A428), with Kernport **34017** already installed. Record the phone's
+27.0 26A428), with KERNPORT **34017** already installed. Record the phone's
 Android version and Quick Share version before starting.
 
-1. Open Quick Share receive on the S22. Confirm it appears in Kernport Send.
+1. Open Quick Share receive on the S22. Confirm it appears in KERNPORT Send.
 2. Send a small text file from the app. Confirm PIN, accept, file lands.
-3. Share a larger file from Finder → Kernport. Confirm the popup lists the
+3. Share a larger file from Finder → KERNPORT. Confirm the popup lists the
    S22, the bar moves, percent updates after accept, and the file lands.
 4. From the S22, send a photo to the Mac. Confirm PIN, accept, file in Downloads.
 5. Start a send and cancel on the phone. Confirm the Mac stops and shows failure.

@@ -441,7 +441,7 @@ public actor InboundSession {
     /// a browser download. Failure is non-fatal because some filesystems do not
     /// support extended attributes.
     nonisolated private static func applyQuarantine(to url: URL) {
-        let value = "0083;\(String(Int(Date().timeIntervalSince1970), radix: 16));Kernport;"
+        let value = "0083;\(String(Int(Date().timeIntervalSince1970), radix: 16));KERNPORT;"
         url.withUnsafeFileSystemRepresentation { path in
             guard let path else { return }
             value.withCString { bytes in

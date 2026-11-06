@@ -1,5 +1,5 @@
-Kernport
-Copyright 2026 Kernport contributors
+KERNPORT
+Copyright 2026 KERNPORT contributors
 
 This product includes software derived from QShare at commit
 2a26e30a978d2344c05f6927c44cedc25fecaf35, originally distributed under the
@@ -26,4 +26,4 @@ Protocol message definitions descend from Google Nearby sources distributed
 under the Apache License, Version 2.0.
 
 "Quick Share", "Nearby Share", Android, and Google are trademarks of Google
-LLC. Kernport is not affiliated with or endorsed by Google.
+LLC. KERNPORT is not affiliated with or endorsed by Google.

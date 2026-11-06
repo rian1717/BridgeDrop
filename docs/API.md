@@ -1,14 +1,14 @@
-# Kernport control API + `kernport` CLI
+# KERNPORT control API + `kernport` CLI
 
-A guide for humans **and agents** to drive Kernport (send/receive files with nearby
+A guide for humans **and agents** to drive KERNPORT (send/receive files with nearby
 Android devices) from the command line or over HTTP.
 
 ## Prerequisites
-- The **Kernport.app must be running** (it hosts the API). It's a menu-bar app;
+- The **KERNPORT.app must be running** (it hosts the API). It's a menu-bar app;
   launching it once is enough — it keeps running in the background.
-- The API must be **enabled**: Kernport > Settings > Automation > "Allow the
+- The API must be **enabled**: KERNPORT > Settings > Automation > "Allow the
   kernport command line". It is **off by default** — while on, anything running
-  under your account can ask Kernport to send any file it can read to a nearby
+  under your account can ask KERNPORT to send any file it can read to a nearby
   device.
 - The API is **localhost-only** (`http://127.0.0.1:47821`), bound to `127.0.0.1`.
 - Every request needs a bearer token, read from `~/.config/kernport/token`
@@ -74,4 +74,4 @@ curl -s -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
 - Device `id`s can change between sessions; prefer matching by `name`.
 - `/send` reuses the app's send flow, so an in-progress CLI send also shows in
   the app window.
-- If `kernport` reports it can't reach the app, launch Kernport.app and retry.
+- If `kernport` reports it can't reach the app, launch KERNPORT.app and retry.

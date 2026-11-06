@@ -2,20 +2,20 @@
 
 ## The phone cannot see the Mac
 
-1. Open Kernport, choose Receive, and enable visibility.
+1. Open KERNPORT, choose Receive, and enable visibility.
 2. Put both devices on the same non-guest Wi‑Fi network.
-3. Grant Kernport Local Network permission in System Settings.
+3. Grant KERNPORT Local Network permission in System Settings.
 4. Temporarily disconnect VPNs on both devices.
 5. Disable router AP/client isolation.
-6. Use Kernport's QR/manual route when ordinary discovery is unavailable.
+6. Use KERNPORT's QR/manual route when ordinary discovery is unavailable.
 
 macOS cannot emit the BLE advertisement or provide the Wi‑Fi Direct behavior of
-Google's complete implementation. Kernport cannot remove that platform limit.
+Google's complete implementation. KERNPORT cannot remove that platform limit.
 
 ## The Mac cannot see the phone
 
 Open Quick Share's receive screen on Android and make the phone visible. Keep
-that screen open while Kernport searches.
+that screen open while KERNPORT searches.
 
 ## The transfer connects but fails
 
@@ -25,7 +25,7 @@ that screen open while Kernport searches.
 - Retry without a VPN or restrictive firewall.
 - Check whether the file changed or moved after it was selected.
 
-Kernport removes incomplete incoming `.part` files automatically.
+KERNPORT removes incomplete incoming `.part` files automatically.
 
 ## Permission prompt never appeared
 
@@ -34,11 +34,11 @@ receive Local Network permission correctly:
 
 ```bash
 BridgeDrop/Packaging/build-app.sh debug
-open BridgeDrop/build/Kernport.app
+open BridgeDrop/build/KERNPORT.app
 ```
 
 If permission was denied, enable it under System Settings → Privacy & Security →
-Local Network, then relaunch Kernport.
+Local Network, then relaunch KERNPORT.
 
 ## Clipboard does not paste
 
@@ -48,16 +48,16 @@ install are:
 **Play Protect blocks the app.** The dialog says the app can request sensitive
 data, and the only button is OK. Open the Play Store, tap your profile, open
 Play Protect, tap the gear, and turn off Improve harmful app detection. If that
-switch is missing, turn off Scan apps with Play Protect. Install Kernport,
+switch is missing, turn off Scan apps with Play Protect. Install KERNPORT,
 then turn the switch back on.
 
 **Clipboard access says “Controlled by restricted setting”.** Android locks
 this because the app was installed from a file. Open Settings → Apps →
-Kernport, tap the three dots, and choose Allow restricted settings. Then open
-Accessibility → Downloaded apps, tap Kernport, and turn it on.
+KERNPORT, tap the three dots, and choose Allow restricted settings. Then open
+Accessibility → Downloaded apps, tap KERNPORT, and turn it on.
 
 Pairing still needs the Mac switch on, both devices on the same Wi-Fi, and the
-phone allowed to keep Kernport running. Copy again, then press ⌘V.
+phone allowed to keep KERNPORT running. Copy again, then press ⌘V.
 
 iPhone copies do not use this path. They paste through Apple Handoff when both
 devices are signed into the same Apple ID.

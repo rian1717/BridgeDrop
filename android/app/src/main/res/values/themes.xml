@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Kernport" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.KERNPORT" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/orange</item>
         <item name="colorOnPrimary">@android:color/white</item>
         <item name="colorSurface">@color/card</item>
@@ -9,17 +9,17 @@
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">true</item>
-        <item name="materialButtonStyle">@style/Widget.Kernport.Button</item>
+        <item name="materialButtonStyle">@style/Widget.KERNPORT.Button</item>
     </style>
 
-    <style name="Theme.Kernport.Splash" parent="Theme.SplashScreen">
+    <style name="Theme.KERNPORT.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/navy</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/navy</item>
-        <item name="postSplashScreenTheme">@style/Theme.Kernport</item>
+        <item name="postSplashScreenTheme">@style/Theme.KERNPORT</item>
     </style>
 
-    <style name="Widget.Kernport.Button" parent="Widget.Material3.Button">
+    <style name="Widget.KERNPORT.Button" parent="Widget.Material3.Button">
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:minHeight">56dp</item>
@@ -39,23 +39,23 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Widget.Kernport.Button.Quiet" parent="Widget.Kernport.Button">
+    <style name="Widget.KERNPORT.Button.Quiet" parent="Widget.KERNPORT.Button">
         <item name="backgroundTint">@color/quiet</item>
         <item name="android:textColor">@color/ink</item>
     </style>
 
-    <style name="Widget.Kernport.Button.Danger" parent="Widget.Kernport.Button">
+    <style name="Widget.KERNPORT.Button.Danger" parent="Widget.KERNPORT.Button">
         <item name="backgroundTint">@color/danger_fill</item>
         <item name="android:textColor">@color/danger</item>
     </style>
 
-    <style name="Text.Kernport.CardTitle" parent="TextAppearance.Material3.TitleLarge">
+    <style name="Text.KERNPORT.CardTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/ink</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Text.Kernport.Help" parent="TextAppearance.Material3.BodyMedium">
+    <style name="Text.KERNPORT.Help" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/muted</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingExtra">2dp</item>

@@ -88,7 +88,7 @@ final class ClipboardServer {
         params.includePeerToPeer = false
         guard let port = NWEndpoint.Port(rawValue: Self.port),
               let listener = try? NWListener(using: params, on: port) else {
-            NSLog("Kernport clipboard: could not bind port \(Self.port)")
+            NSLog("KERNPORT clipboard: could not bind port \(Self.port)")
             onListening?(false)
             return
         }

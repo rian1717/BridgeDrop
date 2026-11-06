@@ -10,7 +10,7 @@ body:
   - type: input
     id: build
     attributes:
-      label: Kernport version/build
+      label: KERNPORT version/build
       placeholder: 0.2.0, build 34001, commit abc1234
     validations:
       required: true

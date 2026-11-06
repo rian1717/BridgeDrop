@@ -21,7 +21,7 @@ import javax.crypto.spec.SecretKeySpec
 /**
  * Speaks Quick Share's receive side. The Mac already browses
  * `_FC9F5ED42C8A._tcp` and sends through this handshake, so the phone can
- * stay inside Kernport and still show up as a receiver.
+ * stay inside KERNPORT and still show up as a receiver.
  */
 class QuickShareSession(
     private val socket: Socket,

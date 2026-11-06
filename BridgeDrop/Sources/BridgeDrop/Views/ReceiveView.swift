@@ -53,7 +53,7 @@ struct ReceiveView: View {
         case .on:       return "\(model.deviceName) · stays ready"
         case .starting: return "Announcing on the local network"
         case .stopping: return "Withdrawing from the network"
-        case .failed:   return "Check that Kernport is allowed on your local network."
+        case .failed:   return "Check that KERNPORT is allowed on your local network."
         case .off:      return "Turn on to receive files"
         }
     }

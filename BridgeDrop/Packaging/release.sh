@@ -8,8 +8,8 @@ set -euo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
 APP_DIR="$(dirname "$HERE")"
-APP="$APP_DIR/build/Kernport.app"
-DMG="$APP_DIR/build/Kernport-macOS.dmg"
+APP="$APP_DIR/build/KERNPORT.app"
+DMG="$APP_DIR/build/KERNPORT-macOS.dmg"
 
 : "${KERNPORT_SIGN_IDENTITY:?Set KERNPORT_SIGN_IDENTITY to a Developer ID Application identity}"
 : "${KERNPORT_NOTARY_PROFILE:?Set KERNPORT_NOTARY_PROFILE to a notarytool keychain profile}"

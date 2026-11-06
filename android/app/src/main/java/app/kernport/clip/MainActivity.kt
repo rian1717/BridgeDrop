@@ -234,15 +234,15 @@ class MainActivity : Activity() {
         backgroundButton.text = if (background) {
             "Background settings opened"
         } else {
-            "Allow this phone to keep Kernport running"
+            "Allow this phone to keep KERNPORT running"
         }
         accessHelp.text = if (access) {
             "On. A copy on this phone can paste on the Mac."
         } else {
-            "Needed so a copy still leaves this phone when Kernport is closed."
+            "Needed so a copy still leaves this phone when KERNPORT is closed."
         }
         backgroundHelp.text = if (background) {
-            "Set Kernport to Unrestricted so it keeps running."
+            "Set KERNPORT to Unrestricted so it keeps running."
         } else {
             "Lets a copy reach the Mac after you leave this app."
         }
@@ -308,7 +308,7 @@ class MainActivity : Activity() {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
             Toast.makeText(
                 this,
-                "Open Downloaded apps, tap Kernport, and switch it on.",
+                "Open Downloaded apps, tap KERNPORT, and switch it on.",
                 Toast.LENGTH_LONG
             ).show()
         }
@@ -343,7 +343,7 @@ class MainActivity : Activity() {
             } catch (_: Exception) {
             }
         }
-        Toast.makeText(this, "Set Kernport to Unrestricted in the phone’s battery settings.", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Set KERNPORT to Unrestricted in the phone’s battery settings.", Toast.LENGTH_LONG).show()
         startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(
             android.net.Uri.parse("package:$packageName")
         ))

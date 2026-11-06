@@ -21,7 +21,7 @@ import java.util.concurrent.Executors
 
 /**
  * Announces this phone as a Quick Share receiver while the screen is on, and
- * accepts the Mac's transfer in this process. Kernport stays in front.
+ * accepts the Mac's transfer in this process. KERNPORT stays in front.
  */
 object Presence {
     private val accept = Executors.newSingleThreadExecutor()

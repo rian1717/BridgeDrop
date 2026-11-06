@@ -61,7 +61,7 @@ struct SendView: View {
                                     icon: "iphone.gen3",
                                     iconColor: Theme.textMuted,
                                     title: name,
-                                    subtitle: "Open Kernport on the phone",
+                                    subtitle: "Open KERNPORT on the phone",
                                     action: {},
                                     trailing: { EmptyView() }
                                 )

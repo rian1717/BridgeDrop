@@ -72,13 +72,13 @@
             android:padding="20dp">
 
             <TextView
-                style="@style/Text.Kernport.CardTitle"
+                style="@style/Text.KERNPORT.CardTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Your Mac" />
 
             <TextView
-                style="@style/Text.Kernport.Help"
+                style="@style/Text.KERNPORT.Help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -86,7 +86,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/find"
-                style="@style/Widget.Kernport.Button"
+                style="@style/Widget.KERNPORT.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -118,7 +118,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/pair_link"
-                style="@style/Widget.Kernport.Button.Quiet"
+                style="@style/Widget.KERNPORT.Button.Quiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -128,7 +128,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/pair_again"
-            style="@style/Widget.Kernport.Button.Quiet"
+            style="@style/Widget.KERNPORT.Button.Quiet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -140,7 +140,7 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/remove_mac"
-            style="@style/Widget.Kernport.Button.Danger"
+            style="@style/Widget.KERNPORT.Button.Danger"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -163,21 +163,21 @@
             android:padding="20dp">
 
             <TextView
-                style="@style/Text.Kernport.CardTitle"
+                style="@style/Text.KERNPORT.CardTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Clipboard" />
 
             <TextView
                 android:id="@+id/access_help"
-                style="@style/Text.Kernport.Help"
+                style="@style/Text.KERNPORT.Help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/access"
-                style="@style/Widget.Kernport.Button"
+                style="@style/Widget.KERNPORT.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -186,14 +186,14 @@
 
             <TextView
                 android:id="@+id/background_help"
-                style="@style/Text.Kernport.Help"
+                style="@style/Text.KERNPORT.Help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/background"
-                style="@style/Widget.Kernport.Button.Quiet"
+                style="@style/Widget.KERNPORT.Button.Quiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -214,14 +214,14 @@
             android:padding="20dp">
 
             <TextView
-                style="@style/Text.Kernport.CardTitle"
+                style="@style/Text.KERNPORT.CardTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="iPhone" />
 
             <TextView
                 android:id="@+id/photo_status"
-                style="@style/Text.Kernport.Help"
+                style="@style/Text.KERNPORT.Help"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp" />
@@ -249,7 +249,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/photo_send"
-                style="@style/Widget.Kernport.Button"
+                style="@style/Widget.KERNPORT.Button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"
@@ -258,7 +258,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/photo_new"
-                style="@style/Widget.Kernport.Button.Quiet"
+                style="@style/Widget.KERNPORT.Button.Quiet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="56dp"

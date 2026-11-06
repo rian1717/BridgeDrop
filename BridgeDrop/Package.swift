@@ -6,7 +6,7 @@ import PackageDescription
 // implemented in BridgeDropCore on top of Foundation, Network and CryptoKit
 // alone. See docs/ARCHITECTURE.md.
 let package = Package(
-    name: "Kernport",
+    name: "KERNPORT",
     platforms: [.macOS("26.0")],   // real Liquid Glass (glassEffect) needs macOS 26
     products: [
         .library(name: "BridgeDropCore", targets: ["BridgeDropCore"]),

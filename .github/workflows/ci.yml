@@ -28,5 +28,5 @@ jobs:
         run: Packaging/build-app.sh release
       - name: Validate bundle
         run: |
-          plutil -lint build/Kernport.app/Contents/Info.plist
-          codesign --verify --deep --strict build/Kernport.app
+          plutil -lint build/KERNPORT.app/Contents/Info.plist
+          codesign --verify --deep --strict build/KERNPORT.app

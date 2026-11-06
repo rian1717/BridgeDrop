@@ -494,7 +494,7 @@ final class AppModel {
         return removedPhoneNames.contains { $0.caseInsensitiveCompare(trimmed) == .orderedSame }
     }
 
-    /// Paired phones that are on the network right now. A Kernport phone wins
+    /// Paired phones that are on the network right now. A KERNPORT phone wins
     /// over a Quick Share advertisement of the same name.
     var myDevices: [RemoteDevice] {
         var rows: [RemoteDevice] = []
@@ -664,7 +664,7 @@ final class AppModel {
         scheduleConnectTimeout(for: device)
     }
 
-    /// A paired phone receives through the Kernport app, not Quick Share.
+    /// A paired phone receives through the KERNPORT app, not Quick Share.
     private func sendToCompanion(_ device: RemoteDevice) {
         guard let host = device.companionHost, let port = device.companionPort else { return }
         let files = stagedFiles
@@ -758,7 +758,7 @@ extension AppModel: BridgeDropServiceDelegate {
             visibilityFailed = false
         } else if wantsVisible {
             // Dropped out from under us. Come back without asking the user
-            // to open Kernport and switch to Receive again.
+            // to open KERNPORT and switch to Receive again.
             restartAdvertising()
             scheduleVisibilityTimeout()
         }

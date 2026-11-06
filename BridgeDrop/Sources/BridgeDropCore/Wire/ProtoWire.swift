@@ -1,6 +1,6 @@
 import Foundation
 
-// Minimal protocol-buffers (proto2) wire format, hand-written for Kernport.
+// Minimal protocol-buffers (proto2) wire format, hand-written for KERNPORT.
 //
 // This covers only what the Quick Share protocol actually uses: varints,
 // length-delimited fields, and nested messages. There is no reflection, no

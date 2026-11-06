@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 @MainActor
 final class AppKitShareViewController: NSViewController {
     private let engine = BridgeDropEngine(
-        deviceName: Host.current().localizedName ?? "Kernport Mac",
+        deviceName: Host.current().localizedName ?? "KERNPORT Mac",
         receiveDirectory: FileManager.default.temporaryDirectory)
 
     private let summaryLabel = NSTextField(labelWithString: "Preparing selected files…")
@@ -30,12 +30,12 @@ final class AppKitShareViewController: NSViewController {
         root.blendingMode = .behindWindow
         root.state = .active
 
-        let title = NSTextField(labelWithString: "Kernport")
+        let title = NSTextField(labelWithString: "KERNPORT")
         title.font = .systemFont(ofSize: 17, weight: .semibold)
 
         let icon = NSImageView(image: NSImage(
             systemSymbolName: "arrow.left.arrow.right.circle.fill",
-            accessibilityDescription: "Kernport") ?? NSImage())
+            accessibilityDescription: "KERNPORT") ?? NSImage())
         icon.contentTintColor = .systemOrange
         icon.symbolConfiguration = .init(pointSize: 22, weight: .medium)
 
@@ -289,7 +289,7 @@ final class AppKitShareViewController: NSViewController {
         request.timeoutInterval = 120
         request.setValue(
             "kernport-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234",
-            forHTTPHeaderField: "X-Kernport-Finder")
+            forHTTPHeaderField: "X-KERNPORT-Finder")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         do {
@@ -346,7 +346,7 @@ final class AppKitShareViewController: NSViewController {
         request.timeoutInterval = 2
         request.setValue(
             "kernport-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234",
-            forHTTPHeaderField: "X-Kernport-Finder")
+            forHTTPHeaderField: "X-KERNPORT-Finder")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: ["deviceName": deviceName])
 

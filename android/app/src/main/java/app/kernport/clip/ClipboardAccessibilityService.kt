@@ -14,7 +14,7 @@ import android.widget.EditText
 
 /**
  * HyperOS does not update the clipboard for a background app, which is why a
- * copy only arrived after Kernport was opened. The words are sent when the
+ * copy only arrived after KERNPORT was opened. The words are sent when the
  * user taps Copy, from WhatsApp, Chrome, or anywhere else. Selecting text
  * does not send it.
  */

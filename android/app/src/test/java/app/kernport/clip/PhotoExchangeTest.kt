@@ -57,7 +57,7 @@ class PhotoExchangeTest {
             mapOf(
                 "Authorization" to "Bearer $token",
                 "Content-Type" to "image/heic",
-                "X-Kernport-Name" to "holiday.HEIC",
+                "X-KERNPORT-Name" to "holiday.HEIC",
             ),
             photo,
         )

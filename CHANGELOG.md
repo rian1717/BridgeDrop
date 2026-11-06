@@ -1,15 +1,19 @@
 # Changelog
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/).
-Kernport uses semantic versioning after the first stable release.
+KERNPORT uses semantic versioning after the first stable release.
 
 ## [0.2.0] - 2026-11-07
 
 ### Changed
 
-- The product name is Kernport. The Mac bundle id is `app.kernport.mac`, the Android application id is `app.kernport.clip`, and nearby discovery uses `_kernport._tcp`. Phones that were paired before this version pair again.
+- The Mac bundle id is `app.kernport.mac`, the Android application id is `app.kernport.clip`, and nearby discovery uses `_kernport._tcp`. Phones that were paired before this version pair again.
 
 ## [Unreleased]
+
+### Changed
+
+- The name people see is KERNPORT. The Mac bundle id stays `app.kernport.mac`, the Android application id stays `app.kernport.clip`, and clipboard discovery stays `_kernport._tcp`.
 
 ### Added
 

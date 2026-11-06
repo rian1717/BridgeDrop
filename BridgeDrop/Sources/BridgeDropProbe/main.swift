@@ -25,7 +25,7 @@ struct BridgeDropProbe {
             for: .downloadsDirectory, in: .userDomainMask).first
             ?? FileManager.default.temporaryDirectory
         let engine = BridgeDropEngine(
-            deviceName: Host.current().localizedName ?? "Kernport Mac",
+            deviceName: Host.current().localizedName ?? "KERNPORT Mac",
             receiveDirectory: downloads)
 
         switch command {
@@ -191,7 +191,7 @@ struct BridgeDropProbe {
 
     private static func printUsage() {
         print("""
-        Kernport real-device protocol probe
+        KERNPORT real-device protocol probe
 
           swift run BridgeDropProbe discover [seconds]
           swift run BridgeDropProbe receive [--directory PATH] [--timeout SECONDS] [--accept]

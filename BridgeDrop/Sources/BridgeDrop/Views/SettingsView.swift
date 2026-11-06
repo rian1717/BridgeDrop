@@ -134,12 +134,12 @@ struct SettingsView: View {
                                 Text("Pairing code").primaryStyle()
                                 Text(model.clipboardPairCodeSpaced)
                                     .font(.system(size: 22, weight: .semibold, design: .monospaced))
-                                Text("On the phone, open Kernport and tap this Mac. The Mac asks you to allow it. Scan this code if the Mac does not appear.")
+                                Text("On the phone, open KERNPORT and tap this Mac. The Mac asks you to allow it. Scan this code if the Mac does not appear.")
                                     .secondaryStyle()
                             }
                         }
                     }
-                    Text("Then turn on clipboard access on the phone. If Android says that setting is restricted, open the Kernport app page and choose Allow restricted settings. iPhone copies already paste through Apple Handoff when both devices use the same Apple ID.")
+                    Text("Then turn on clipboard access on the phone. If Android says that setting is restricted, open the KERNPORT app page and choose Allow restricted settings. iPhone copies already paste through Apple Handoff when both devices use the same Apple ID.")
                         .secondaryStyle()
                 }
             }

@@ -52,10 +52,10 @@ struct MenuBarView: View {
         }
 
         Divider()
-        Button("Open Kernport") { openMainWindow() }
+        Button("Open KERNPORT") { openMainWindow() }
         SettingsLink { Text("Settings…") }
             .keyboardShortcut(",")
-        Button("Quit Kernport") { NSApp.terminate(nil) }
+        Button("Quit KERNPORT") { NSApp.terminate(nil) }
             .keyboardShortcut("q")
 
         // Not a menu item — just where the model (which

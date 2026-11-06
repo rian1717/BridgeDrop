@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>Kernport</string>
+	<string>KERNPORT</string>
 	<key>CFBundleExecutable</key>
-	<string>Kernport</string>
+	<string>KERNPORT</string>
 	<key>CFBundleIconFile</key>
 	<string>AppIcon</string>
 	<key>CFBundleIconName</key>
@@ -13,7 +13,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>app.kernport.mac</string>
 	<key>CFBundleName</key>
-	<string>Kernport</string>
+	<string>KERNPORT</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -30,14 +30,14 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSLocalNetworkUsageDescription</key>
-	<string>Kernport uses the local network to find nearby Android devices, transfer files, and receive clipboard copies.</string>
+	<string>KERNPORT uses the local network to find nearby Android devices, transfer files, and receive clipboard copies.</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Kernport uses Bluetooth to read the name of a nearby phone. Quick Share leaves that name out of the Wi-Fi announcement.</string>
-	<key>KernportBuildDate</key>
+	<string>KERNPORT uses Bluetooth to read the name of a nearby phone. Quick Share leaves that name out of the Wi-Fi announcement.</string>
+	<key>KERNPORTBuildDate</key>
 	<string>__DATE__</string>
-	<key>KernportGitCommit</key>
+	<key>KERNPORTGitCommit</key>
 	<string>__COMMIT__</string>
-	<key>KernportReleaseStage</key>
+	<key>KERNPORTReleaseStage</key>
 	<string>alpha</string>
 </dict>
 </plist>

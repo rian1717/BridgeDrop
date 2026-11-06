@@ -22,7 +22,7 @@ class ClipForegroundService : Service() {
         )
         val paired = ClipSync.isPaired(this)
         val notification = Notification.Builder(this, channelId)
-            .setContentTitle("Kernport")
+            .setContentTitle("KERNPORT")
             .setContentText(
                 if (paired) "Copies on this phone paste on your Mac with ⌘V"
                 else "This phone is visible to your Mac"
@@ -63,7 +63,7 @@ class ClipForegroundService : Service() {
                 NotificationChannel(channelId, "Clipboard", NotificationManager.IMPORTANCE_LOW)
             )
             val notification = Notification.Builder(context, channelId)
-                .setContentTitle("Kernport clipboard")
+                .setContentTitle("KERNPORT clipboard")
                 .setContentText(text)
                 .setSmallIcon(android.R.drawable.stat_sys_upload)
                 .build()

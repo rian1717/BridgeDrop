@@ -124,7 +124,7 @@ object ClipSync {
 
     private fun plainPairError(raw: String): String = when {
         raw.contains("bad_code") ->
-            "That code does not match the Mac. Read the 8 digits under the QR code in Kernport settings and try again."
+            "That code does not match the Mac. Read the 8 digits under the QR code in KERNPORT settings and try again."
         raw.contains("slow_down") ->
             "Too many tries. Wait a minute, then pair again."
         raw.contains("denied") ->
@@ -140,7 +140,7 @@ object ClipSync {
         val code = uri.getQueryParameter("code").orEmpty().filter { it.isDigit() }
         val name = uri.getQueryParameter("name") ?: "Mac"
         if (uri.scheme != "kernport" || uri.host != "clip" || host.isEmpty() || code.length != 8) {
-            done("That link is not a Kernport pairing code")
+            done("That link is not a KERNPORT pairing code")
             return
         }
         pairWithCode(context, Mac(name, host, port), code, done)
@@ -210,7 +210,7 @@ object ClipSync {
     fun pairWithCode(context: Context, mac: Mac, code: String, done: (String) -> Unit) {
         val digits = code.filter { it.isDigit() }
         if (digits.length != 8) {
-            done("Type the 8-digit code from the Mac first. It is under the QR code in Kernport settings.")
+            done("Type the 8-digit code from the Mac first. It is under the QR code in KERNPORT settings.")
             return
         }
         work.execute {

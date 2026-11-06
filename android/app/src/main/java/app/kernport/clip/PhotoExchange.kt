@@ -7,7 +7,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 /**
- * Original-photo transfer between Kernport on Android and Kernport on iPhone.
+ * Original-photo transfer between KERNPORT on Android and KERNPORT on iPhone.
  * The bytes are stored as sent. Nothing recompresses them.
  */
 object PhotoExchange {

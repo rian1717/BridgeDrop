@@ -1,7 +1,7 @@
 import Foundation
 import Security
 
-/// Everything Kernport persists, and the migrations between older shapes of it.
+/// Everything KERNPORT persists, and the migrations between older shapes of it.
 ///
 /// Split out of `AppModel` so the view model states *what* it wants remembered
 /// and this states *how*. Keys live here and nowhere else.
@@ -38,7 +38,7 @@ struct Preferences {
     }
 
     /// Absent means on. A paired Mac should already be ready to receive; the
-    /// user should not have to open Kernport and switch to Receive first.
+    /// user should not have to open KERNPORT and switch to Receive first.
     var startVisible: Bool {
         get {
             if defaults.object(forKey: Key.startVisible) == nil { return true }
@@ -165,7 +165,7 @@ enum BuildInfo {
     /// Marketing version, e.g. "0.1 alpha".
     static let version: String = {
         let short = string(for: "CFBundleShortVersionString") ?? "0.1"
-        let stage = string(for: "KernportReleaseStage") ?? "alpha"
+        let stage = string(for: "KERNPORTReleaseStage") ?? "alpha"
         return "\(short) \(stage)"
     }()
 
@@ -173,10 +173,10 @@ enum BuildInfo {
     static let build: String = string(for: "CFBundleVersion") ?? "—"
 
     /// Short git SHA the build came from; the unambiguous identifier.
-    static let commit: String = string(for: "KernportGitCommit") ?? "—"
+    static let commit: String = string(for: "KERNPORTGitCommit") ?? "—"
 
     /// When the bundle was assembled.
-    static let builtAt: String = string(for: "KernportBuildDate") ?? "—"
+    static let builtAt: String = string(for: "KERNPORTBuildDate") ?? "—"
 
     /// True when running from a proper .app rather than `swift run`.
     static var isPackaged: Bool { string(for: "CFBundleVersion") != nil }
