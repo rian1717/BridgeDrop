@@ -1,0 +1,24 @@
+# Swift / SPM
+BridgeDrop/.build/
+.build/
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+DerivedData/
+.DS_Store
+
+# Built .app bundle
+BridgeDrop/build/
+
+# Claude Code local settings
+.claude/settings.local.json
+BridgeDrop/Packaging/.build-number
+
+# Android companion
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+
+# Private notes. They stay on this Mac and are not part of the project.
+docs/PROJECT.md
+docs/BridgeDrop-Product-Documentation.pdf

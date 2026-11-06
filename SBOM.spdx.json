@@ -1,0 +1,39 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "name": "BridgeDrop SBOM",
+  "documentNamespace": "https://bridgedrop.app/spdx/2026-11-05/development",
+  "creationInfo": {
+    "created": "2026-11-05T17:00:00Z",
+    "creators": [
+      "Tool: BridgeDrop build process"
+    ]
+  },
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-BridgeDrop",
+      "name": "BridgeDrop",
+      "versionInfo": "0.1.0-development",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "Apache-2.0",
+      "licenseDeclared": "Apache-2.0",
+      "copyrightText": "Copyright 2026 BridgeDrop contributors",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceType": "purl",
+          "referenceLocator": "pkg:swift/BridgeDrop@0.1.0-development"
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "spdxElementId": "SPDXRef-DOCUMENT",
+      "relationshipType": "DESCRIBES",
+      "relatedSpdxElement": "SPDXRef-Package-BridgeDrop"
+    }
+  ]
+}

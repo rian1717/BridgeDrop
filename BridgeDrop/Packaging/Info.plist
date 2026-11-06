@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>BridgeDrop</string>
+	<key>CFBundleExecutable</key>
+	<string>BridgeDrop</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>CFBundleIdentifier</key>
+	<string>app.bridgedrop.mac</string>
+	<key>CFBundleName</key>
+	<string>BridgeDrop</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>26.0</string>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_FC9F5ED42C8A._tcp</string>
+		<string>_bridgedrop._tcp</string>
+	</array>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>BridgeDrop uses the local network to find nearby Android devices, transfer files, and receive clipboard copies.</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>BridgeDrop uses Bluetooth to read the name of a nearby phone. Quick Share leaves that name out of the Wi-Fi announcement.</string>
+	<key>BridgeDropBuildDate</key>
+	<string>__DATE__</string>
+	<key>BridgeDropGitCommit</key>
+	<string>__COMMIT__</string>
+	<key>BridgeDropReleaseStage</key>
+	<string>alpha</string>
+</dict>
+</plist>
