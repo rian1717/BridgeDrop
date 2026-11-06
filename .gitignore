@@ -22,3 +22,14 @@ android/local.properties
 # Private notes. They stay on this Mac and are not part of the project.
 docs/PROJECT.md
 docs/BridgeDrop-Product-Documentation.pdf
+
+# Install files and signing material. Never part of the public source.
+*.apk
+*.aab
+*.keystore
+*.jks
+*.p12
+*.mobileprovision
+
+# Xcode compilation cache created beside the project
+-Xcc/
