@@ -154,7 +154,7 @@ automation. It is **off by default** — enable it in *Settings → Services*.
 > reason it's opt-in.
 
 ```bash
-ln -s "$(pwd)/BridgeDrop/Packaging/kernport" /usr/local/bin/kernport
+ln -s "$(pwd)/KERNPORT/Packaging/kernport" /usr/local/bin/kernport
 
 kernport list                                   # devices currently visible
 kernport send ~/photo.jpg --to "Pixel 8 Pro"    # blocks; exit 0 on success
@@ -167,10 +167,10 @@ endpoint reference: **[docs/API.md](docs/API.md)**.
 ## How it works
 
 ```
-Views (SwiftUI)  ──observe──▶  AppModel  ──▶  BridgeDropService
+Views (SwiftUI)  ──observe──▶  AppModel  ──▶  KERNPORTService
                                                      │
                                           ┌──────────┴──────────┐
-                                     MockService          BridgeDropEngine
+                                     MockService          KERNPORTEngine
                               (KERNPORT_MOCK=1)                 │
                                                     ┌───────────┴───────────┐
                                                Discovery              Transport
@@ -180,8 +180,8 @@ Views (SwiftUI)  ──observe──▶  AppModel  ──▶  BridgeDropService
                                                             UKEY2 P-256  protobuf
 ```
 
-`Sources/BridgeDropCore/` is the protocol; `Sources/BridgeDrop/` is the app.
-The seam between them is one protocol (`BridgeDropService`), which is also what
+`Sources/KERNPORTCore/` is the protocol; `Sources/KERNPORT/` is the app.
+The seam between them is one protocol (`KERNPORTService`), which is also what
 makes the mock engine possible.
 
 The whole thing is Swift 6 language mode: the transport runs on actors, the app
@@ -198,9 +198,9 @@ protocol details worth knowing.
 ## Build and develop
 
 ```bash
-cd BridgeDrop
-BridgeDrop/Packaging/build-app.sh
-open BridgeDrop/build/KERNPORT.app
+cd KERNPORT
+KERNPORT/Packaging/build-app.sh
+open KERNPORT/build/KERNPORT.app
 ```
 
 The packaging step matters: real networking needs a proper `.app` bundle so
@@ -209,8 +209,8 @@ macOS will grant local-network access. A bare `swift run` binary can't get it.
 ```bash
 swift test                        # unit + protocol tests
 swift test --sanitize=thread      # concurrency
-cd BridgeDrop
-KERNPORT_MOCK=1 swift run BridgeDrop    # UI work without a phone
+cd KERNPORT
+KERNPORT_MOCK=1 swift run KERNPORT    # UI work without a phone
 ```
 
 `KERNPORT_MOCK=1` runs a simulated engine that drives every UI state — devices, PINs,

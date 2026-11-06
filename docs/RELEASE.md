@@ -15,7 +15,7 @@
 ```bash
 export KERNPORT_SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)"
 export KERNPORT_NOTARY_PROFILE="kernport-notary"
-BridgeDrop/Packaging/release.sh
+KERNPORT/Packaging/release.sh
 ```
 
 The script builds the app and extension with hardened runtime, signs them,

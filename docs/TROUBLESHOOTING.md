@@ -33,8 +33,8 @@ Development must run from a packaged `.app`; a bare `swift run` process may not
 receive Local Network permission correctly:
 
 ```bash
-BridgeDrop/Packaging/build-app.sh debug
-open BridgeDrop/build/KERNPORT.app
+KERNPORT/Packaging/build-app.sh debug
+open KERNPORT/build/KERNPORT.app
 ```
 
 If permission was denied, enable it under System Settings → Privacy & Security →

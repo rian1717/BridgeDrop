@@ -18,12 +18,12 @@ current Quick Share build. Complete this matrix for every release candidate.
 
 ## Probe commands
 
-Run from `BridgeDrop/`:
+Run from `KERNPORT/`:
 
 ```bash
-swift run BridgeDropProbe discover 45
-swift run BridgeDropProbe receive --directory /tmp/kernport-receive --accept
-swift run BridgeDropProbe send /tmp/kernport-fixture.bin --to "PHONE NAME"
+swift run KERNPORTProbe discover 45
+swift run KERNPORTProbe receive --directory /tmp/kernport-receive --accept
+swift run KERNPORTProbe send /tmp/kernport-fixture.bin --to "PHONE NAME"
 ```
 
 For Local Network permission, use the packaged app if macOS denies a bare

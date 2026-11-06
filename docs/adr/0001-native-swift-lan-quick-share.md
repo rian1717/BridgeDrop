@@ -14,7 +14,7 @@ implementation.
 
 1. Target macOS 26 and newer for V1, validating first on macOS 27.
 2. Use Swift 6, SwiftUI/AppKit, Network.framework, CryptoKit, and CommonCrypto.
-3. Keep the protocol in a separate `BridgeDropCore` target behind a service
+3. Keep the protocol in a separate `KERNPORTCore` target behind a service
    interface.
 4. Implement Quick Share's same-LAN mDNS/TCP transport and QR/manual connection
    fallback.

@@ -6,7 +6,7 @@ the no-account, no-cloud, bounded-memory design.
 ## Local checks
 
 ```bash
-cd BridgeDrop
+cd KERNPORT
 swift test
 swift test --sanitize=thread
 swift build -c release
@@ -15,14 +15,14 @@ swift build -c release
 To exercise the UI without a phone:
 
 ```bash
-KERNPORT_MOCK=1 swift run BridgeDrop
+KERNPORT_MOCK=1 swift run KERNPORT
 ```
 
 Real networking requires the packaged app:
 
 ```bash
-BridgeDrop/Packaging/build-app.sh debug
-open BridgeDrop/build/KERNPORT.app
+KERNPORT/Packaging/build-app.sh debug
+open KERNPORT/build/KERNPORT.app
 ```
 
 ## Pull requests
@@ -31,7 +31,7 @@ open BridgeDrop/build/KERNPORT.app
 - Never record real transferred file contents, PINs, tokens, or peer addresses.
 - Document protocol provenance and licenses for imported material.
 - Keep the app target thin; networking and transfer logic belong in
-  `BridgeDropCore`.
+  `KERNPORTCore`.
 - Describe real-device validation separately from simulated and loopback tests.
 
 Run the complete local checks before requesting review.

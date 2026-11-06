@@ -1,5 +1,5 @@
 # Swift / SPM
-BridgeDrop/.build/
+KERNPORT/.build/
 .build/
 *.xcodeproj/xcuserdata/
 *.xcworkspace/xcuserdata/
@@ -7,11 +7,11 @@ DerivedData/
 .DS_Store
 
 # Built .app bundle
-BridgeDrop/build/
+KERNPORT/build/
 
 # Claude Code local settings
 .claude/settings.local.json
-BridgeDrop/Packaging/.build-number
+KERNPORT/Packaging/.build-number
 
 # Android companion
 android/.gradle/

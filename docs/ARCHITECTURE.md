@@ -16,16 +16,16 @@ The app is a thin, testable SwiftUI shell over a swappable engine:
 Views (SwiftUI)  ──observe──▶  AppModel (@MainActor, ObservableObject)
                                    │  intents (connect, sendFiles, respond…)
                                    ▼
-                          BridgeDropService  (protocol)
-                          ├── MockBridgeDropService   ← KERNPORT_MOCK=1 (simulated)
-                          └── NearbyBridgeDropService ← wraps NearDrop (default)
+                          KERNPORTService  (protocol)
+                          ├── MockKERNPORTService   ← KERNPORT_MOCK=1 (simulated)
+                          └── NearbyKERNPORTService ← wraps NearDrop (default)
                                    │
-                                   ▼ callbacks (BridgeDropServiceDelegate, @MainActor)
+                                   ▼ callbacks (KERNPORTServiceDelegate, @MainActor)
                               back into AppModel
 ```
 
 **Why a protocol seam:** the UI never touches sockets, protobufs, or crypto. It
-depends only on `BridgeDropService` + `BridgeDropServiceDelegate`. Swapping the
+depends only on `KERNPORTService` + `KERNPORTServiceDelegate`. Swapping the
 mock for the real engine changes one line in `AppModel.init` and adds no UI
 churn.
 
@@ -33,11 +33,11 @@ churn.
 
 | File | Role |
 |------|------|
-| `Sources/BridgeDrop/App/BridgeDropApp.swift` | `@main`, windows, menu bar, and app delegate |
-| `Sources/BridgeDrop/Model/AppModel.swift` | Single source of truth; state machine; delegate implementation |
-| `Sources/BridgeDrop/Engine/BridgeDropService.swift` | Engine interface and delegate |
-| `Sources/BridgeDrop/Engine/MockService.swift` | Simulated engine for UI development |
-| `Sources/BridgeDrop/Model/DomainTypes.swift` | UI-side devices and transfer models |
+| `Sources/KERNPORT/App/KERNPORTApp.swift` | `@main`, windows, menu bar, and app delegate |
+| `Sources/KERNPORT/Model/AppModel.swift` | Single source of truth; state machine; delegate implementation |
+| `Sources/KERNPORT/Engine/KERNPORTService.swift` | Engine interface and delegate |
+| `Sources/KERNPORT/Engine/MockService.swift` | Simulated engine for UI development |
+| `Sources/KERNPORT/Model/DomainTypes.swift` | UI-side devices and transfer models |
 | `Views/RootView.swift` | Shell: header, Send/Receive switch, transfers list |
 | `Views/SendView.swift` | Discover → connect → PIN → drag-drop/picker → send |
 | `Views/ReceiveView.swift` | Visibility toggle, QR code, accept/decline |
@@ -46,7 +46,7 @@ churn.
 
 ## The protocol interface (designed to match NearDrop)
 
-`BridgeDropService` deliberately mirrors NearDrop's two delegate groups so the
+`KERNPORTService` deliberately mirrors NearDrop's two delegate groups so the
 real wrapper is mechanical:
 
 | Our method / callback | NearDrop equivalent |
@@ -87,12 +87,12 @@ call, and the verification PIN only exists afterwards. The UI reflects this:
 `connecting` → `awaitingConsent` (PIN shown) → remote accepts →
 transfer moves to the shared Transfers list.
 
-`BridgeDropEngine` correlates each outbound session with the discovered endpoint
+`KERNPORTEngine` correlates each outbound session with the discovered endpoint
 identifier and rejects a concurrent second transfer to the same endpoint.
 
 ## The protocol layer
 
-`Sources/BridgeDropCore/` is ours end to end. No generated code, no external
+`Sources/KERNPORTCore/` is ours end to end. No generated code, no external
 packages.
 
 | Area | Files | Notes |
@@ -131,14 +131,14 @@ interoperability with a real Android device — only a live transfer does.
 
 ## Status / next
 
-Done: native engine, `NearbyBridgeDropService` wrapper, `.app` bundle with
+Done: native engine, `NearbyKERNPORTService` wrapper, `.app` bundle with
 Bonjour + `NSLocalNetworkUsageDescription`, menu-bar app, drag and drop,
 transfer history, configurable receive location, bounded parsers, temporary
 file writes, disk-space checks, quarantine attributes, and explicit consent.
 
 Next:
 1. **Smoke-test against real Android devices**, both directions, using
-   `BridgeDropProbe` and `REAL_DEVICE_TEST_MATRIX.md`.
+   `KERNPORTProbe` and `REAL_DEVICE_TEST_MATRIX.md`.
 2. **Verifiable device identity.** Auto-accept remains absent because
    there is nothing to key it on — see *Device identity* below.
 

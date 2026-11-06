@@ -1,9 +1,9 @@
 included:
-  - BridgeDrop/Sources
-  - BridgeDrop/Tests
+  - KERNPORT/Sources
+  - KERNPORT/Tests
 
 excluded:
-  - BridgeDrop/.build
+  - KERNPORT/.build
 
 line_length:
   warning: 120
