@@ -1,8 +1,8 @@
 <h1 align="center">BridgeDrop</h1>
 
 <p align="center">
-  Send and receive files between your Mac and nearby Android devices,<br>
-  using Android's native <b>Quick Share</b> experience.
+  Send a file from a Mac to an Android phone, or the other way,<br>
+  on the same Wi-Fi. Pair once. After that, it stays connected.
 </p>
 
 <p align="center">
@@ -20,15 +20,13 @@
 
 ---
 
-Android phones can share files with each other in two taps. Macs can't join in —
-Quick Share has no Apple client, and AirDrop doesn't speak to Android. BridgeDrop
-fills that gap: your Mac shows up in your phone's Quick Share sheet, and your
-phone shows up in BridgeDrop's device list.
+Your phone already shares with Quick Share. Your Mac shares with AirDrop. Those two do not see each other, so people send the file through a chat app and the photo gets smaller. BridgeDrop is the Mac app that speaks Quick Share, so the file stays full size and stays on your Wi-Fi.
 
-Quick Share is undocumented, so BridgeDrop follows a reverse-engineered
-specification — mDNS discovery, UKEY2 key agreement,
-AES-256-CBC + HMAC-SHA256 secure messages, chunked transfer — depending on
-nothing outside the OS.
+Pair the Android phone once. After that it stays connected. You do not pair again for the next file, and you do not pair again for the next copy.
+
+An iPhone does not install anything. The Android phone shows a QR code. Safari opens it. The photo is the original file.
+
+There is no downloadable phone install file in this repository yet. The Android app is source you build yourself. The Mac app is not notarized yet, so macOS will warn if you give the build to someone else.
 
 ## Features
 
@@ -41,9 +39,7 @@ nothing outside the OS.
 - **QR code** — reach a phone that can't discover you
 - **Menu-bar app** — keeps running with the window closed
 - **Command-line API** — drive it from scripts or an agent (off by default)
-- **Clipboard** — copy text, images, or files on Android and press ⌘V on the Mac.
-  Turn it on in Settings and pair the BridgeDrop Android app once. iPhone copies
-  already paste through Apple Handoff.
+- **Clipboard** — pair once. After that, copy on the Android phone and press ⌘V on the Mac. iPhone copies already paste through Apple Handoff.
 
 ## Install
 
@@ -78,7 +74,7 @@ Apple ID. For Android:
 
 1. On the Mac, open **BridgeDrop → Settings…** and turn on **Paste phone copies here**. Leave the QR code and the 8-digit code on screen.
 2. Install the BridgeDrop phone app. It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
-3. On the phone, scan the Mac's QR code and open it in BridgeDrop. Or type the 8-digit code, tap **Find Mac on this Wi-Fi**, then tap the Mac's name. Tapping the name, without the code, asks you to tap **Allow** on the Mac.
+3. On the phone, scan the Mac's QR code and open it in BridgeDrop. Or type the 8-digit code and tap the Mac. Tapping the Mac without the code asks you to tap **Allow** once on the Mac. After that one pair, the phone stays connected.
 4. Tap **Turn on clipboard access**. If BridgeDrop is marked **Controlled by restricted setting**, open **Settings → Apps → BridgeDrop**, tap the three dots, and choose **Allow restricted settings**. Then go back to **Accessibility → Downloaded apps**, tap BridgeDrop, and turn it on.
 5. Tap **Allow this phone to keep BridgeDrop running**. On a Xiaomi phone that is Autostart. On a Samsung phone, keep BridgeDrop out of sleeping apps.
 6. Copy text, a picture, or a file on the phone, then press **⌘V** on the Mac.
