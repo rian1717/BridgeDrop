@@ -45,16 +45,16 @@ Download the Mac app and the Android app from the [latest release](https://githu
 
 Needs **macOS 26 or later**, an Android phone, and both devices on the same Wi-Fi.
 
-The latest published release is still [v0.2.0](https://github.com/rian1717/KERNPORT/releases/tag/v0.2.0). The product in that release is **KERNPORT**. The two download files are still spelled:
+The latest published release is still [v0.2.0](https://github.com/rian1717/KERNPORT/releases/tag/v0.2.0). The product in that release is **KERNPORT**. The two download files are:
 
-- `Kernport-mac.zip` for the Mac
-- `Kernport-android.apk` for the phone
+- `KERNPORT-mac.zip` for the Mac
+- `KERNPORT-android.apk` for the phone
 
 A build from this source is `KERNPORT.app`.
 
 ### Mac
 
-1. Unzip `Kernport-mac.zip`.
+1. Unzip `KERNPORT-mac.zip`.
 2. Move **KERNPORT** into **Applications**.
 3. Open it. macOS says it cannot check the developer, because this build is not notarized.
 4. Control-click **KERNPORT** and choose **Open**, then choose **Open** again.
@@ -64,11 +64,11 @@ A build from this source is `KERNPORT.app`.
 xattr -dr com.apple.quarantine /Applications/KERNPORT.app
 ```
 
-The v0.2.0 zip still contains an app file spelled `Kernport.app`. Use that name in the path above if that is the file you moved. Then control-click the app and choose **Open** again. The first launch may ask for Local Network. Allow it.
+The zip contains `KERNPORT.app`. Then control-click the app and choose **Open** again. The first launch may ask for Local Network. Allow it.
 
 ### Android
 
-1. Copy `Kernport-android.apk` onto the phone and open it.
+1. Copy `KERNPORT-android.apk` onto the phone and open it.
 2. Allow installation from that source if Android asks.
 3. If Play Protect blocks it and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
 
@@ -98,7 +98,7 @@ copies already paste through Apple Handoff when both devices use the same
 Apple ID. For Android:
 
 1. On the Mac, open **KERNPORT → Settings…** and turn on **Paste phone copies here**. Leave the QR code and the 8-digit code on screen.
-2. Install the Android file from the [latest release](https://github.com/rian1717/KERNPORT/releases/tag/v0.2.0). On v0.2.0 that file is still spelled `Kernport-android.apk`. It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
+2. Install the Android file from the [latest release](https://github.com/rian1717/KERNPORT/releases/tag/v0.2.0). On v0.2.0 that file is `KERNPORT-android.apk`. It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
 3. On the phone, scan the Mac's QR code and open it in KERNPORT. Or type the 8-digit code and tap the Mac. Tapping the Mac without the code asks you to tap **Allow** once on the Mac. After that one pair, the phone stays connected.
 4. Tap **Turn on clipboard access**. If KERNPORT is marked **Controlled by restricted setting**, open **Settings → Apps → KERNPORT**, tap the three dots, and choose **Allow restricted settings**. Then go back to **Accessibility → Downloaded apps**, tap KERNPORT, and turn it on.
 5. Tap **Allow this phone to keep KERNPORT running**. On a Xiaomi phone that is Autostart. On a Samsung phone, keep KERNPORT out of sleeping apps.
