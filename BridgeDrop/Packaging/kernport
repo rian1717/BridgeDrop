@@ -1,56 +1,56 @@
 #!/usr/bin/env bash
-# bridgedrop — drive the running BridgeDrop app from the terminal (or an AI/tool).
+# kernport — drive the running Kernport app from the terminal (or an AI/tool).
 # Talks to the app's localhost API on 127.0.0.1:47821.
 set -euo pipefail
 
 BASE="http://127.0.0.1:47821"
-TOKEN_FILE="$HOME/.config/bridgedrop/token"
+TOKEN_FILE="$HOME/.config/kernport/token"
 
 usage() {
   cat <<'EOF'
-bridgedrop — send files to nearby Android devices via the BridgeDrop app.
+kernport — send files to nearby Android devices via the Kernport app.
 
 USAGE
-  bridgedrop list [--json]                  List devices currently visible for sending
-  bridgedrop send <file>... --to <name>     Send file(s) to a device (name or id);
+  kernport list [--json]                  List devices currently visible for sending
+  kernport send <file>... --to <name>     Send file(s) to a device (name or id);
                                           blocks until done (exit 0 = success)
-  bridgedrop status [--json]                Show active/recent transfers
-  bridgedrop --help
+  kernport status [--json]                Show active/recent transfers
+  kernport --help
 
 OPTIONS
   --json    Print raw JSON instead of formatted text (for scripts / AI).
-  --to <n>  Target device: a name from `bridgedrop list`, or its id.
+  --to <n>  Target device: a name from `kernport list`, or its id.
 
 EXAMPLES
-  bridgedrop list --json
-  bridgedrop send ~/photo.jpg --to "Noise's phone"
-  bridgedrop send a.jpg b.pdf --to Pixel --json
+  kernport list --json
+  kernport send ~/photo.jpg --to "Noise's phone"
+  kernport send a.jpg b.pdf --to Pixel --json
 
 OUTPUT (send --json)   {"ok":true,"pin":"8374","error":null}
 EXIT CODES             0 ok · 1 failed/unreachable · 2 usage error
 
 NOTES
-  * BridgeDrop.app must be running — it hosts the local API on 127.0.0.1:47821
-    (loopback only; token at ~/.config/bridgedrop/token).
+  * Kernport.app must be running — it hosts the local API on 127.0.0.1:47821
+    (loopback only; token at ~/.config/kernport/token).
   * The receiver must always accept the transfer (a PIN prompt on their device).
-  * Requires "Allow the bridgedrop command line" to be ON in BridgeDrop > Settings >
+  * Requires "Allow the kernport command line" to be ON in Kernport > Settings >
     Automation. It is off by default.
-  * Full API + agent guide: docs/API.md in the BridgeDrop repo.
+  * Full API + agent guide: docs/API.md in the Kernport repo.
 EOF
 }
 
 api() { # method path [json-body] — prints the body, exits non-zero on HTTP error
   local method="$1" path="$2" data="${3:-}"
   local token; token="$(cat "$TOKEN_FILE" 2>/dev/null || true)"
-  [[ -n "$token" ]] || { echo "bridgedrop: no token at $TOKEN_FILE — launch the BridgeDrop app once." >&2; exit 1; }
+  [[ -n "$token" ]] || { echo "kernport: no token at $TOKEN_FILE — launch the Kernport app once." >&2; exit 1; }
   local args=(-s -m 600 -w '\n%{http_code}' -H "Authorization: Bearer $token")
   if [[ -n "$data" ]]; then
     args+=(-X "$method" -H "Content-Type: application/json" -d "$data")
   fi
   local raw
   raw="$(curl "${args[@]}" "$BASE$path" 2>/dev/null)" || {
-    echo "bridgedrop: can't reach BridgeDrop on $BASE — is the app running, and is" >&2
-    echo "       Settings > Automation > \"Allow the bridgedrop command line\" on?" >&2
+    echo "kernport: can't reach Kernport on $BASE — is the app running, and is" >&2
+    echo "       Settings > Automation > \"Allow the kernport command line\" on?" >&2
     exit 1; }
   local code="${raw##*$'\n'}" body="${raw%$'\n'*}"
   # Report HTTP failures here rather than handing an error object to a parser
@@ -59,9 +59,9 @@ api() { # method path [json-body] — prints the body, exits non-zero on HTTP er
     # 502 is /send reporting a failed transfer — its body is structured
     # {"ok":false,"error":…}, so the caller interprets it.
     200|502) printf '%s\n' "$body" ;;
-    401) echo "bridgedrop: token rejected — delete $TOKEN_FILE and relaunch BridgeDrop." >&2; exit 1 ;;
-    000) echo "bridgedrop: no response from $BASE." >&2; exit 1 ;;
-    *)   echo "bridgedrop: API returned HTTP $code: $body" >&2; exit 1 ;;
+    401) echo "kernport: token rejected — delete $TOKEN_FILE and relaunch Kernport." >&2; exit 1 ;;
+    000) echo "kernport: no response from $BASE." >&2; exit 1 ;;
+    *)   echo "kernport: API returned HTTP $code: $body" >&2; exit 1 ;;
   esac
 }
 
@@ -100,7 +100,7 @@ for x in d: print(f'"'"'{x["title"]}  -> {x["device"]}  {x["phase"]} {x["percent
         *) files+=("$1"); shift ;;
       esac
     done
-    [[ -n "$to" && ${#files[@]} -gt 0 ]] || { echo "usage: bridgedrop send <file>... --to <name>" >&2; exit 2; }
+    [[ -n "$to" && ${#files[@]} -gt 0 ]] || { echo "usage: kernport send <file>... --to <name>" >&2; exit 2; }
     body="$(python3 -c '
 import sys,json,os
 print(json.dumps({"paths":[os.path.abspath(p) for p in sys.argv[2:]], "to":sys.argv[1]}))' "$to" "${files[@]}")"
@@ -113,5 +113,5 @@ print(json.dumps({"paths":[os.path.abspath(p) for p in sys.argv[2:]], "to":sys.a
       echo "✗ Failed: $err" >&2; exit 1
     fi ;;
 
-  *) echo "bridgedrop: unknown command '$cmd'" >&2; usage; exit 2 ;;
+  *) echo "kernport: unknown command '$cmd'" >&2; usage; exit 2 ;;
 esac

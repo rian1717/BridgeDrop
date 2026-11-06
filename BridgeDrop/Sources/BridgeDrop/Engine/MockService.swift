@@ -3,7 +3,7 @@ import Foundation
 /// Fake engine that drives the dummy UI through every state with realistic
 /// timing, so the interface can be reviewed before the real protocol lands.
 ///
-/// Nothing here touches the network. Enabled with `BRIDGEDROP_MOCK=1`; the real
+/// Nothing here touches the network. Enabled with `KERNPORT_MOCK=1`; the real
 /// engine is `NearbyBridgeDropService`.
 @MainActor
 final class MockBridgeDropService: BridgeDropService {
@@ -147,7 +147,7 @@ final class MockBridgeDropService: BridgeDropService {
 
 // MARK: - Demo fixtures
 
-/// Sample transfers for `BRIDGEDROP_MOCK=1`.
+/// Sample transfers for `KERNPORT_MOCK=1`.
 ///
 /// Deliberately neutral — no real filenames, people or devices — because this is
 /// what ends up in screenshots. Lives outside AppModel because it's fixture

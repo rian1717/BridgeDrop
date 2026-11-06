@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -170,7 +170,7 @@ object PhotoWeb {
 
     private fun saveUpload(context: Context, headers: Map<String, String>, body: ByteArray): Boolean {
         if (body.isEmpty()) return false
-        val raw = headers["x-bridgedrop-name"].orEmpty()
+        val raw = headers["x-kernport-name"].orEmpty()
         val name = java.net.URLDecoder.decode(raw, "UTF-8")
             .substringAfterLast('/')
             .substringAfterLast('\\')
@@ -187,7 +187,7 @@ object PhotoWeb {
                 val values = android.content.ContentValues().apply {
                     put(MediaStore.Images.Media.DISPLAY_NAME, safe)
                     put(MediaStore.Images.Media.MIME_TYPE, type)
-                    put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/BridgeDrop")
+                    put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_PICTURES + "/Kernport")
                     put(MediaStore.Images.Media.IS_PENDING, 1)
                 }
                 val uri = context.contentResolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values)
@@ -209,7 +209,7 @@ object PhotoWeb {
             <!doctype html>
             <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
             <meta name="theme-color" content="#1D2B40">
-            <title>BridgeDrop</title>
+            <title>Kernport</title>
             <style>
               :root { color-scheme: light; }
               * { box-sizing: border-box; }
@@ -247,7 +247,7 @@ object PhotoWeb {
             </style>
             <header>
               <div class="mark"></div>
-              <h1>BridgeDrop</h1>
+              <h1>Kernport</h1>
               <p>Nothing to install. The photo stays full size.</p>
             </header>
             <main>
@@ -273,7 +273,7 @@ object PhotoWeb {
                   method: 'POST',
                   headers: {
                     'Content-Type': file.type || 'application/octet-stream',
-                    'X-BridgeDrop-Name': encodeURIComponent(file.name || 'photo')
+                    'X-Kernport-Name': encodeURIComponent(file.name || 'photo')
                   },
                   body: file
                 });
@@ -281,7 +281,7 @@ object PhotoWeb {
               }
               document.getElementById('sent').textContent = saved
                 ? 'Sent ' + saved + ' photo' + (saved === 1 ? '' : 's') + ' to the Android gallery.'
-                : 'The Android phone did not take the photo. Keep BridgeDrop open and stay on the same Wi-Fi.';
+                : 'The Android phone did not take the photo. Keep Kernport open and stay on the same Wi-Fi.';
               event.target.value = '';
             };
             async function savePhoto(item) {
@@ -373,7 +373,7 @@ object PhotoWeb {
         manager.notify(
             2,
             android.app.Notification.Builder(context, channel)
-                .setContentTitle("BridgeDrop")
+                .setContentTitle("Kernport")
                 .setContentText(text)
                 .setSmallIcon(android.R.drawable.stat_sys_download_done)
                 .build(),

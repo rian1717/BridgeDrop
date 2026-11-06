@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 @MainActor
 final class AppKitShareViewController: NSViewController {
     private let engine = BridgeDropEngine(
-        deviceName: Host.current().localizedName ?? "BridgeDrop Mac",
+        deviceName: Host.current().localizedName ?? "Kernport Mac",
         receiveDirectory: FileManager.default.temporaryDirectory)
 
     private let summaryLabel = NSTextField(labelWithString: "Preparing selected files…")
@@ -30,12 +30,12 @@ final class AppKitShareViewController: NSViewController {
         root.blendingMode = .behindWindow
         root.state = .active
 
-        let title = NSTextField(labelWithString: "BridgeDrop")
+        let title = NSTextField(labelWithString: "Kernport")
         title.font = .systemFont(ofSize: 17, weight: .semibold)
 
         let icon = NSImageView(image: NSImage(
             systemSymbolName: "arrow.left.arrow.right.circle.fill",
-            accessibilityDescription: "BridgeDrop") ?? NSImage())
+            accessibilityDescription: "Kernport") ?? NSImage())
         icon.contentTintColor = .systemOrange
         icon.symbolConfiguration = .init(pointSize: 22, weight: .medium)
 
@@ -259,7 +259,7 @@ final class AppKitShareViewController: NSViewController {
         let paths = files.map(\.path)
 
         guard NSRunningApplication.runningApplications(
-            withBundleIdentifier: "app.bridgedrop.mac").isEmpty else {
+            withBundleIdentifier: "app.kernport.mac").isEmpty else {
             performFinderSend(paths: paths, deviceName: device.name)
             return
         }
@@ -288,8 +288,8 @@ final class AppKitShareViewController: NSViewController {
         request.httpMethod = "POST"
         request.timeoutInterval = 120
         request.setValue(
-            "bridgedrop-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234",
-            forHTTPHeaderField: "X-BridgeDrop-Finder")
+            "kernport-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234",
+            forHTTPHeaderField: "X-Kernport-Finder")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
         do {
@@ -345,8 +345,8 @@ final class AppKitShareViewController: NSViewController {
         request.httpMethod = "POST"
         request.timeoutInterval = 2
         request.setValue(
-            "bridgedrop-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234",
-            forHTTPHeaderField: "X-BridgeDrop-Finder")
+            "kernport-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234",
+            forHTTPHeaderField: "X-Kernport-Finder")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: ["deviceName": deviceName])
 

@@ -13,7 +13,7 @@ final class SharedTextTests: XCTestCase {
 
     override func setUpWithError() throws {
         receiveDir = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-text-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-text-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: receiveDir, withIntermediateDirectories: true)
     }
 

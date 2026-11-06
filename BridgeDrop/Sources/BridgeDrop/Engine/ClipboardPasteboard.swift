@@ -108,16 +108,16 @@ enum ClipboardDecode {
 
     private static func parseBlob(headers: [String: String], body: Data) throws -> ClipboardPayload {
         guard !body.isEmpty else { throw ClipboardDecodeError.badRequest }
-        let source = cleanSource((headers["x-bridgedrop-source"] ?? "").removingPercentEncoding ?? "")
-        if (headers["x-bridgedrop-kind"] ?? "file") == "text" {
+        let source = cleanSource((headers["x-kernport-source"] ?? "").removingPercentEncoding ?? "")
+        if (headers["x-kernport-kind"] ?? "file") == "text" {
             guard let text = String(data: body, encoding: .utf8)?
                 .trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else {
                 throw ClipboardDecodeError.badRequest
             }
             return ClipboardPayload(source: source, text: text, html: nil, files: [])
         }
-        let name = sanitizeFileName((headers["x-bridgedrop-name"] ?? "clipboard").removingPercentEncoding ?? "clipboard")
-        let mime = headers["x-bridgedrop-mime"] ?? "application/octet-stream"
+        let name = sanitizeFileName((headers["x-kernport-name"] ?? "clipboard").removingPercentEncoding ?? "clipboard")
+        let mime = headers["x-kernport-mime"] ?? "application/octet-stream"
         return ClipboardPayload(source: source, text: nil, html: nil,
                                 files: [ClipFile(name: name, mime: mime, data: body)])
     }
@@ -160,7 +160,7 @@ enum ClipboardPasteboard {
 
     private static func store(_ file: ClipFile) throws -> URL {
         let directory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
-            .appendingPathComponent("BridgeDrop/Clipboard", isDirectory: true)
+            .appendingPathComponent("Kernport/Clipboard", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         let clean = ClipboardDecode.sanitizeFileName(file.name)
         var url = directory.appendingPathComponent(clean)
@@ -174,7 +174,7 @@ enum ClipboardPasteboard {
         try file.data.write(to: url, options: .atomic)
         var values = URLResourceValues()
         values.quarantineProperties = [
-            "LSQuarantineAgentName": "BridgeDrop",
+            "LSQuarantineAgentName": "Kernport",
             "LSQuarantineType": "LSQuarantineTypeOtherDownload",
         ]
         var quarantined = url

@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals

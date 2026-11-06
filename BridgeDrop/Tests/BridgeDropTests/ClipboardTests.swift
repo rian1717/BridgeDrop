@@ -8,7 +8,7 @@ final class ClipboardTests: XCTestCase {
     func testTextJSONBecomesPasteboardText() throws {
         let body = Data(#"{"kind":"text","text":"hello from the phone","html":"<b>hello</b>","source":"Redmi Note 14"}"#.utf8)
         let payload = try ClipboardDecode.parse(headers: ["content-type": "application/json"], body: body)
-        let board = NSPasteboard(name: NSPasteboard.Name("BridgeDropClipboardTests.text"))
+        let board = NSPasteboard(name: NSPasteboard.Name("KernportClipboardTests.text"))
         let summary = try ClipboardPasteboard.apply(payload, to: board)
         XCTAssertEqual(board.string(forType: .string), "hello from the phone")
         XCTAssertNil(board.string(forType: .html))
@@ -21,7 +21,7 @@ final class ClipboardTests: XCTestCase {
         let json = #"{"kind":"image","name":"../shot.png","mime":"image/png","data":"\#(encoded)","source":"Pixel"}"#
         let payload = try ClipboardDecode.parse(headers: ["content-type": "application/json"], body: Data(json.utf8))
         XCTAssertEqual(payload.files.first?.name, "shot.png")
-        let board = NSPasteboard(name: NSPasteboard.Name("BridgeDropClipboardTests.image"))
+        let board = NSPasteboard(name: NSPasteboard.Name("KernportClipboardTests.image"))
         _ = try ClipboardPasteboard.apply(payload, to: board)
         XCTAssertNotNil(NSImage(data: png))
         XCTAssertFalse(board.pasteboardItems?.isEmpty ?? true)
@@ -49,6 +49,6 @@ final class ClipboardTests: XCTestCase {
         XCTAssertFalse(ClipboardServer.isPrivateIPv4(IPv4Address("172.32.0.1")!))
         XCTAssertTrue(ClipboardServer.isPrivateLAN(.hostPort(host: .ipv4(.loopback), port: 47822)))
         XCTAssertFalse(ClipboardServer.isPrivateLAN(
-            .service(name: "phone", type: "_bridgedrop._tcp", domain: "local", interface: nil)))
+            .service(name: "phone", type: "_kernport._tcp", domain: "local", interface: nil)))
     }
 }

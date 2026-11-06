@@ -56,7 +56,7 @@ final class ReceivedFileNameTests: XCTestCase {
 
     func testDestinationsNeverEscapeTheReceiveDirectory() throws {
         let root = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-            .appendingPathComponent("bridgedrop-confine-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-confine-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
         defer { try? FileManager.default.removeItem(at: root) }
         let base = root.resolvingSymlinksInPath()
@@ -78,7 +78,7 @@ final class ReceivedFileNameTests: XCTestCase {
 
     func testCollisionsGetDisambiguated() throws {
         let root = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-            .appendingPathComponent("bridgedrop-collide-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-collide-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: root, withIntermediateDirectories: true)
         defer { try? FileManager.default.removeItem(at: root) }
 

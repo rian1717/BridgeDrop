@@ -89,7 +89,7 @@ final class LoopbackTransferTests: XCTestCase {
 
     private func makeTempFile(bytes: Int, name: String) throws -> URL {
         let dir = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-loopback-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-loopback-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         let url = dir.appendingPathComponent(name)
         // Compressible-but-varied content, so a truncated transfer is detectable.
@@ -116,7 +116,7 @@ final class LoopbackTransferTests: XCTestCase {
         defer { try? FileManager.default.removeItem(at: sourceURL.deletingLastPathComponent()) }
 
         let receiveDir = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-recv-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-recv-\(UUID().uuidString)", isDirectory: true)
         defer { try? FileManager.default.removeItem(at: receiveDir) }
 
         // Sender dials the listener; receiver wraps whatever gets accepted.
@@ -196,7 +196,7 @@ final class LoopbackTransferTests: XCTestCase {
         let sourceURL = try makeTempFile(bytes: 64_000, name: "quick.bin")
         defer { try? FileManager.default.removeItem(at: sourceURL.deletingLastPathComponent()) }
         let receiveDir = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-recv-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-recv-\(UUID().uuidString)", isDirectory: true)
         defer { try? FileManager.default.removeItem(at: receiveDir) }
 
         let clientConnection = NWConnection(
@@ -247,7 +247,7 @@ final class LoopbackTransferTests: XCTestCase {
         defer { try? FileManager.default.removeItem(at: sourceURL.deletingLastPathComponent()) }
 
         let receiveDir = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-recv-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-recv-\(UUID().uuidString)", isDirectory: true)
         defer { try? FileManager.default.removeItem(at: receiveDir) }
 
         let clientConnection = NWConnection(

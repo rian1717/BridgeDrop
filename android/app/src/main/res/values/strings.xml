@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">BridgeDrop</string>
-    <string name="accessibility_description">Sends what you copy to your paired Mac, even when BridgeDrop is in the background, so ⌘V pastes it there.</string>
+    <string name="app_name">Kernport</string>
+    <string name="accessibility_description">Sends what you copy to your paired Mac, even when Kernport is in the background, so ⌘V pastes it there.</string>
 </resources>

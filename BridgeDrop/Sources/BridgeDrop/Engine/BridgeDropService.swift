@@ -3,7 +3,7 @@ import Foundation
 /// Abstraction over the Quick Share protocol engine.
 ///
 /// `NearbyBridgeDropService` adapts `BridgeDropCore.BridgeDropEngine`;
-/// `MockBridgeDropService` simulates it for UI work (`BRIDGEDROP_MOCK=1`). Same
+/// `MockBridgeDropService` simulates it for UI work (`KERNPORT_MOCK=1`). Same
 /// interface, so no UI code changes either way.
 ///
 /// The split mirrors the two roles a device plays:

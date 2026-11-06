@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
@@ -57,7 +57,7 @@ class PhotoExchangeTest {
             mapOf(
                 "Authorization" to "Bearer $token",
                 "Content-Type" to "image/heic",
-                "X-BridgeDrop-Name" to "holiday.HEIC",
+                "X-Kernport-Name" to "holiday.HEIC",
             ),
             photo,
         )

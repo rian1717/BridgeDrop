@@ -5,7 +5,7 @@
 
 ## Context
 
-BridgeDrop's first promise is bidirectional transfer between macOS and Android
+Kernport's first promise is bidirectional transfer between macOS and Android
 through Android's built-in Quick Share experience. macOS cannot emit the BLE
 advertisements or provide the Wi‑Fi Direct APIs used by Google's complete
 implementation.

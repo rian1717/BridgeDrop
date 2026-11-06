@@ -6,7 +6,7 @@ struct RemoteDevice: Identifiable, Hashable {
     let id: String
     var name: String
     var type: DeviceType
-    /// Set when this row is the BridgeDrop app on a paired phone, not Quick Share.
+    /// Set when this row is the Kernport app on a paired phone, not Quick Share.
     var companionHost: String? = nil
     var companionPort: Int? = nil
 

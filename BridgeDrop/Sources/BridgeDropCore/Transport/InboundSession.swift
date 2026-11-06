@@ -300,7 +300,7 @@ public actor InboundSession {
             }
             reservedDestinations.insert(destination)
             let temporaryURL = receiveDirectory.appendingPathComponent(
-                ".\(destination.lastPathComponent).bridgedrop-\(UUID().uuidString).part")
+                ".\(destination.lastPathComponent).kernport-\(UUID().uuidString).part")
             let file = IncomingFile(name: destination.lastPathComponent, size: size,
                                     mimeType: meta.mimeType ?? "application/octet-stream",
                                     payloadID: payloadID)
@@ -441,7 +441,7 @@ public actor InboundSession {
     /// a browser download. Failure is non-fatal because some filesystems do not
     /// support extended attributes.
     nonisolated private static func applyQuarantine(to url: URL) {
-        let value = "0083;\(String(Int(Date().timeIntervalSince1970), radix: 16));BridgeDrop;"
+        let value = "0083;\(String(Int(Date().timeIntervalSince1970), radix: 16));Kernport;"
         url.withUnsafeFileSystemRepresentation { path in
             guard let path else { return }
             value.withCString { bytes in

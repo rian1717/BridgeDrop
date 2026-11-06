@@ -2,29 +2,29 @@
   "SPDXID": "SPDXRef-DOCUMENT",
   "spdxVersion": "SPDX-2.3",
   "dataLicense": "CC0-1.0",
-  "name": "BridgeDrop SBOM",
-  "documentNamespace": "https://bridgedrop.app/spdx/2026-11-05/development",
+  "name": "Kernport SBOM",
+  "documentNamespace": "https://github.com/rian1717/Kernport/spdx/2026-11-07/0.2.0",
   "creationInfo": {
     "created": "2026-11-05T17:00:00Z",
     "creators": [
-      "Tool: BridgeDrop build process"
+      "Tool: Kernport build process"
     ]
   },
   "packages": [
     {
-      "SPDXID": "SPDXRef-Package-BridgeDrop",
-      "name": "BridgeDrop",
-      "versionInfo": "0.1.0-development",
+      "SPDXID": "SPDXRef-Package-Kernport",
+      "name": "Kernport",
+      "versionInfo": "0.2.0",
       "downloadLocation": "NOASSERTION",
       "filesAnalyzed": false,
       "licenseConcluded": "Apache-2.0",
       "licenseDeclared": "Apache-2.0",
-      "copyrightText": "Copyright 2026 BridgeDrop contributors",
+      "copyrightText": "Copyright 2026 Kernport contributors",
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
           "referenceType": "purl",
-          "referenceLocator": "pkg:swift/BridgeDrop@0.1.0-development"
+          "referenceLocator": "pkg:swift/Kernport@0.2.0"
         }
       ]
     }
@@ -33,7 +33,7 @@
     {
       "spdxElementId": "SPDXRef-DOCUMENT",
       "relationshipType": "DESCRIBES",
-      "relatedSpdxElement": "SPDXRef-Package-BridgeDrop"
+      "relatedSpdxElement": "SPDXRef-Package-Kernport"
     }
   ]
 }

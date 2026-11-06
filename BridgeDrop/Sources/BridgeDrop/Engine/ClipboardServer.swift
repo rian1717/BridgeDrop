@@ -88,14 +88,14 @@ final class ClipboardServer {
         params.includePeerToPeer = false
         guard let port = NWEndpoint.Port(rawValue: Self.port),
               let listener = try? NWListener(using: params, on: port) else {
-            NSLog("BridgeDrop clipboard: could not bind port \(Self.port)")
+            NSLog("Kernport clipboard: could not bind port \(Self.port)")
             onListening?(false)
             return
         }
         self.listener = listener
         listener.service = NWListener.Service(
             name: String(deviceName.prefix(63)),
-            type: "_bridgedrop._tcp")
+            type: "_kernport._tcp")
         listener.newConnectionHandler = { [weak self] (connection: NWConnection) in
             guard let self else { connection.cancel(); return }
             guard Self.isPrivateLAN(connection.endpoint) else {

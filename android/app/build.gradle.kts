@@ -4,15 +4,15 @@ plugins {
 }
 
 android {
-    namespace = "app.bridgedrop.clip"
+    namespace = "app.kernport.clip"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "app.bridgedrop.clip"
+        applicationId = "app.kernport.clip"
         minSdk = 26
         targetSdk = 35
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 2
+        versionName = "0.2.0"
     }
 
     buildTypes {

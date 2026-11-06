@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -21,7 +21,7 @@ import java.util.concurrent.Executors
 
 /** Paired Mac plus the send path for one clipboard snapshot. */
 object ClipSync {
-    private const val PREFS = "bridgedrop-clip"
+    private const val PREFS = "kernport-clip"
     private const val MAX_BYTES = 32 * 1024 * 1024
     private val work = Executors.newSingleThreadExecutor()
     private val main = Handler(Looper.getMainLooper())
@@ -124,7 +124,7 @@ object ClipSync {
 
     private fun plainPairError(raw: String): String = when {
         raw.contains("bad_code") ->
-            "That code does not match the Mac. Read the 8 digits under the QR code in BridgeDrop settings and try again."
+            "That code does not match the Mac. Read the 8 digits under the QR code in Kernport settings and try again."
         raw.contains("slow_down") ->
             "Too many tries. Wait a minute, then pair again."
         raw.contains("denied") ->
@@ -139,8 +139,8 @@ object ClipSync {
         val port = uri.getQueryParameter("port")?.toIntOrNull() ?: 47822
         val code = uri.getQueryParameter("code").orEmpty().filter { it.isDigit() }
         val name = uri.getQueryParameter("name") ?: "Mac"
-        if (uri.scheme != "bridgedrop" || uri.host != "clip" || host.isEmpty() || code.length != 8) {
-            done("That link is not a BridgeDrop pairing code")
+        if (uri.scheme != "kernport" || uri.host != "clip" || host.isEmpty() || code.length != 8) {
+            done("That link is not a Kernport pairing code")
             return
         }
         pairWithCode(context, Mac(name, host, port), code, done)
@@ -148,7 +148,7 @@ object ClipSync {
 
     fun discover(context: Context, found: (Mac) -> Unit, finished: () -> Unit) {
         val wifi = context.applicationContext.getSystemService(WifiManager::class.java)
-        val multicast = wifi?.createMulticastLock("bridgedrop-clip")
+        val multicast = wifi?.createMulticastLock("kernport-clip")
         multicast?.setReferenceCounted(false)
         multicast?.acquire()
         val nsd = context.getSystemService(NsdManager::class.java)
@@ -170,7 +170,7 @@ object ClipSync {
             override fun onStopDiscoveryFailed(serviceType: String, errorCode: Int) {}
             override fun onServiceLost(serviceInfo: NsdServiceInfo) {}
         }
-        nsd.discoverServices("_bridgedrop._tcp.", NsdManager.PROTOCOL_DNS_SD, listener)
+        nsd.discoverServices("_kernport._tcp.", NsdManager.PROTOCOL_DNS_SD, listener)
         main.postDelayed({
             try { nsd.stopServiceDiscovery(listener) } catch (_: Exception) { finished() }
             if (multicast?.isHeld == true) multicast.release()
@@ -210,7 +210,7 @@ object ClipSync {
     fun pairWithCode(context: Context, mac: Mac, code: String, done: (String) -> Unit) {
         val digits = code.filter { it.isDigit() }
         if (digits.length != 8) {
-            done("Type the 8-digit code from the Mac first. It is under the QR code in BridgeDrop settings.")
+            done("Type the 8-digit code from the Mac first. It is under the QR code in Kernport settings.")
             return
         }
         work.execute {
@@ -375,7 +375,7 @@ object ClipSync {
             } catch (_: SecurityException) {
             }
         }
-        if (text.startsWith("bridgedrop://clip")) return null
+        if (text.startsWith("kernport://clip")) return null
         val json = JSONObject().put("source", deviceLabel(context))
         when {
             text.isNotEmpty() -> json.put("kind", "text").put("text", text)
@@ -430,7 +430,7 @@ object ClipSync {
 
     private fun usableText(raw: String?): String? {
         val text = raw?.trim() ?: return null
-        if (text.isEmpty() || text.startsWith("content://") || text.startsWith("bridgedrop://")) return null
+        if (text.isEmpty() || text.startsWith("content://") || text.startsWith("kernport://")) return null
         return text
     }
 

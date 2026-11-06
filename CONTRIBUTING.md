@@ -1,6 +1,6 @@
 # Contributing
 
-BridgeDrop is a native macOS 26+ Swift 6 application. Changes should preserve
+Kernport is a native macOS 26+ Swift 6 application. Changes should preserve
 the no-account, no-cloud, bounded-memory design.
 
 ## Local checks
@@ -15,14 +15,14 @@ swift build -c release
 To exercise the UI without a phone:
 
 ```bash
-BRIDGEDROP_MOCK=1 swift run BridgeDrop
+KERNPORT_MOCK=1 swift run BridgeDrop
 ```
 
 Real networking requires the packaged app:
 
 ```bash
 BridgeDrop/Packaging/build-app.sh debug
-open BridgeDrop/build/BridgeDrop.app
+open BridgeDrop/build/Kernport.app
 ```
 
 ## Pull requests

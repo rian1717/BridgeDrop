@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import android.Manifest
 import android.app.Activity
@@ -113,7 +113,7 @@ class MainActivity : Activity() {
 
     private fun consumeLink(intent: Intent?) {
         val data = intent?.data ?: return
-        if (data.scheme != "bridgedrop") return
+        if (data.scheme != "kernport") return
         ClipSync.pairWithLink(this, data.toString()) {
             show(it)
             if (ClipSync.isPaired(this)) showPairing = false
@@ -224,7 +224,7 @@ class MainActivity : Activity() {
         val access = accessibilityOn()
         val background = backgroundOpened()
         val showForm = !paired || showPairing
-        val staleAccess = access && !getSharedPreferences("bridgedrop-clip", MODE_PRIVATE)
+        val staleAccess = access && !getSharedPreferences("kernport-clip", MODE_PRIVATE)
             .getBoolean("canReadScreen", true)
 
         pairSection.visibility = if (showForm) View.VISIBLE else View.GONE
@@ -234,15 +234,15 @@ class MainActivity : Activity() {
         backgroundButton.text = if (background) {
             "Background settings opened"
         } else {
-            "Allow this phone to keep BridgeDrop running"
+            "Allow this phone to keep Kernport running"
         }
         accessHelp.text = if (access) {
             "On. A copy on this phone can paste on the Mac."
         } else {
-            "Needed so a copy still leaves this phone when BridgeDrop is closed."
+            "Needed so a copy still leaves this phone when Kernport is closed."
         }
         backgroundHelp.text = if (background) {
-            "Set BridgeDrop to Unrestricted so it keeps running."
+            "Set Kernport to Unrestricted so it keeps running."
         } else {
             "Lets a copy reach the Mac after you leave this app."
         }
@@ -288,7 +288,7 @@ class MainActivity : Activity() {
     }
 
     private fun backgroundOpened(): Boolean {
-        return getSharedPreferences("bridgedrop-clip", Context.MODE_PRIVATE)
+        return getSharedPreferences("kernport-clip", Context.MODE_PRIVATE)
             .getBoolean("backgroundOpened", false)
     }
 
@@ -308,14 +308,14 @@ class MainActivity : Activity() {
             startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
             Toast.makeText(
                 this,
-                "Open Downloaded apps, tap BridgeDrop, and switch it on.",
+                "Open Downloaded apps, tap Kernport, and switch it on.",
                 Toast.LENGTH_LONG
             ).show()
         }
     }
 
     private fun openBackgroundSettings() {
-        getSharedPreferences("bridgedrop-clip", Context.MODE_PRIVATE).edit()
+        getSharedPreferences("kernport-clip", Context.MODE_PRIVATE).edit()
             .putBoolean("backgroundOpened", true)
             .apply()
         val power = getSystemService(PowerManager::class.java)
@@ -343,7 +343,7 @@ class MainActivity : Activity() {
             } catch (_: Exception) {
             }
         }
-        Toast.makeText(this, "Set BridgeDrop to Unrestricted in the phone’s battery settings.", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Set Kernport to Unrestricted in the phone’s battery settings.", Toast.LENGTH_LONG).show()
         startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(
             android.net.Uri.parse("package:$packageName")
         ))

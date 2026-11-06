@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build BridgeDrop.app — a proper macOS bundle so the OS grants local-network
+# Build Kernport.app — a proper macOS bundle so the OS grants local-network
 # access (Bonjour/mDNS) that a bare `swift run` binary can't get.
 #
 # Usage: BridgeDrop/Packaging/build-app.sh [debug|release]   (default: release)
@@ -9,7 +9,7 @@ CONFIG="${1:-release}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 APP_DIR="$(dirname "$HERE")"                 # .../BridgeDrop package
 ROOT_DIR="$(dirname "$APP_DIR")"
-OUT="$APP_DIR/build/BridgeDrop.app"
+OUT="$APP_DIR/build/Kernport.app"
 PRODUCTS="$APP_DIR/.build/xcode-products"
 OBJECTS="$APP_DIR/.build/xcode-objects"
 XCODE_CONFIG="$(tr '[:lower:]' '[:upper:]' <<< "${CONFIG:0:1}")${CONFIG:1}"
@@ -23,7 +23,7 @@ xcodebuild \
   OBJROOT="$OBJECTS" \
   CODE_SIGNING_ALLOWED=NO \
   clean build >/dev/null
-BUILT_APP="$PRODUCTS/$XCODE_CONFIG/BridgeDrop.app"
+BUILT_APP="$PRODUCTS/$XCODE_CONFIG/Kernport.app"
 
 # --- build identity -----------------------------------------------------
 # A monotonic counter so it's obvious at a glance which build is running, plus
@@ -51,8 +51,8 @@ cp "$HERE/AppIcon.icns" "$OUT/Contents/Resources/AppIcon.icns"
 
 PLIST="$OUT/Contents/Info.plist"
 /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $BUILD_NUMBER" "$PLIST"
-/usr/libexec/PlistBuddy -c "Set :BridgeDropGitCommit $GIT_COMMIT" "$PLIST"
-/usr/libexec/PlistBuddy -c "Set :BridgeDropBuildDate $BUILD_DATE" "$PLIST"
+/usr/libexec/PlistBuddy -c "Set :KernportGitCommit $GIT_COMMIT" "$PLIST"
+/usr/libexec/PlistBuddy -c "Set :KernportBuildDate $BUILD_DATE" "$PLIST"
 VERSION="$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$PLIST")"
 EXTENSION_PLIST="$OUT/Contents/PlugIns/BridgeDropShareExtension.appex/Contents/Info.plist"
 if [[ -f "$EXTENSION_PLIST" ]]; then

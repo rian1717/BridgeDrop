@@ -10,7 +10,7 @@ struct BridgeDropApp: App {
         // `Window`, not `WindowGroup`, so "Open" focuses the one window rather
         // than spawning duplicates. macOS autosaves a window's frame per scene
         // id, so changing an id discards a saved frame.
-        Window("BridgeDrop", id: "main-window") {
+        Window("Kernport", id: "main-window") {
             RootView()
                 .environment(model)
                 // A height range is required: with none, `.contentSize`
@@ -104,7 +104,7 @@ struct AppCommands: Commands {
 
         InertDefaultsRemoved()
 
-        // MARK: BridgeDrop
+        // MARK: Kernport
 
         CommandGroup(after: .appInfo) {
             Button("Build Info…") { model.showingBuildInfo = true }

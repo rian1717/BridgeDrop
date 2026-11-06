@@ -45,7 +45,7 @@ final class FileDropTests: XCTestCase {
 
     private func makeFiles(_ count: Int) throws -> (dir: URL, urls: [URL]) {
         let dir = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-            .appendingPathComponent("bridgedrop-drop-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-drop-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: dir, withIntermediateDirectories: true)
         let urls = try (0..<count).map { i -> URL in
             let u = dir.appendingPathComponent(String(format: "file-%03d.txt", i))

@@ -53,7 +53,7 @@ struct ReceiveView: View {
         case .on:       return "\(model.deviceName) · stays ready"
         case .starting: return "Announcing on the local network"
         case .stopping: return "Withdrawing from the network"
-        case .failed:   return "Check that BridgeDrop is allowed on your local network."
+        case .failed:   return "Check that Kernport is allowed on your local network."
         case .off:      return "Turn on to receive files"
         }
     }
@@ -64,7 +64,7 @@ struct ReceiveView: View {
                 Text("On your Android device").cardTitle()
                 step(1, "Select a file and tap Share, then Quick Share.")
                 step(2, "Choose “\(model.deviceName)” from the list of nearby devices.")
-                step(3, "Confirm the PIN, and files land in [\(model.downloadDirectory.lastPathComponent)](bridgedrop://folder).")
+                step(3, "Confirm the PIN, and files land in [\(model.downloadDirectory.lastPathComponent)](kernport://folder).")
             }
             .tint(Theme.orange)
             .environment(\.openURL, OpenURLAction { _ in

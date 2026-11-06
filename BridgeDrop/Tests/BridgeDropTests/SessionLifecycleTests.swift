@@ -14,7 +14,7 @@ final class SessionLifecycleTests: XCTestCase {
 
     private func receiveDir() throws -> URL {
         let url = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-life-\(UUID().uuidString)", isDirectory: true)
+            .appendingPathComponent("kernport-life-\(UUID().uuidString)", isDirectory: true)
         try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true)
         return url
     }
@@ -36,7 +36,7 @@ final class SessionLifecycleTests: XCTestCase {
 
     func testOutboundEventsIsSingleShot() async throws {
         let file = URL(fileURLWithPath: NSTemporaryDirectory())
-            .appendingPathComponent("bridgedrop-life-\(UUID().uuidString).bin")
+            .appendingPathComponent("kernport-life-\(UUID().uuidString).bin")
         try Data("x".utf8).write(to: file)
         defer { try? FileManager.default.removeItem(at: file) }
 

@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -21,7 +21,7 @@ import java.util.concurrent.Executors
 
 /**
  * Announces this phone as a Quick Share receiver while the screen is on, and
- * accepts the Mac's transfer in this process. BridgeDrop stays in front.
+ * accepts the Mac's transfer in this process. Kernport stays in front.
  */
 object Presence {
     private val accept = Executors.newSingleThreadExecutor()
@@ -140,13 +140,13 @@ object Presence {
         if (multicast?.isHeld == true) return
         val wifi = context.applicationContext.getSystemService(WifiManager::class.java) ?: return
         try {
-            multicast = wifi.createMulticastLock("bridgedrop").apply {
+            multicast = wifi.createMulticastLock("kernport").apply {
                 setReferenceCounted(false)
                 acquire()
             }
             if (radio?.isHeld != true) {
                 @Suppress("DEPRECATION")
-                radio = wifi.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "bridgedrop-radio").apply {
+                radio = wifi.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "kernport-radio").apply {
                     setReferenceCounted(false)
                     acquire()
                 }

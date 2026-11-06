@@ -17,7 +17,7 @@ Views (SwiftUI)  ──observe──▶  AppModel (@MainActor, ObservableObject)
                                    │  intents (connect, sendFiles, respond…)
                                    ▼
                           BridgeDropService  (protocol)
-                          ├── MockBridgeDropService   ← BRIDGEDROP_MOCK=1 (simulated)
+                          ├── MockBridgeDropService   ← KERNPORT_MOCK=1 (simulated)
                           └── NearbyBridgeDropService ← wraps NearDrop (default)
                                    │
                                    ▼ callbacks (BridgeDropServiceDelegate, @MainActor)

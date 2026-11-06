@@ -126,7 +126,7 @@ final class AppModel {
     private nonisolated static func currentSystemIsDark() -> Bool {
         UserDefaults.standard.string(forKey: "AppleInterfaceStyle") == "Dark"
     }
-    /// Localhost control API for the `bridgedrop` CLI. Off by default: it can read
+    /// Localhost control API for the `kernport` CLI. Off by default: it can read
     /// any path the user can and push it to a nearby device, so it's opt-in.
     var controlAPIEnabled: Bool = false
 
@@ -159,11 +159,11 @@ final class AppModel {
 
     init(service: BridgeDropService? = nil) {
         let usesRealDefaultService = service == nil
-            && ProcessInfo.processInfo.environment["BRIDGEDROP_MOCK"] == nil
-        // Defaults to the real engine. Set BRIDGEDROP_MOCK=1 for the simulated engine.
+            && ProcessInfo.processInfo.environment["KERNPORT_MOCK"] == nil
+        // Defaults to the real engine. Set KERNPORT_MOCK=1 for the simulated engine.
         if let service {
             self.service = service
-        } else if ProcessInfo.processInfo.environment["BRIDGEDROP_MOCK"] != nil {
+        } else if ProcessInfo.processInfo.environment["KERNPORT_MOCK"] != nil {
             self.service = MockBridgeDropService()
         } else {
             self.service = NearbyBridgeDropService()
@@ -196,7 +196,7 @@ final class AppModel {
         ) { [weak self] _ in
             Task { @MainActor in self?.systemIsDark = AppModel.currentSystemIsDark() }
         })
-        if ProcessInfo.processInfo.environment["BRIDGEDROP_MOCK"] != nil {
+        if ProcessInfo.processInfo.environment["KERNPORT_MOCK"] != nil {
             deviceName = "MacBook Pro"   // neutral name for demo screenshots
             transfers = DemoData.transfers()
         }
@@ -336,7 +336,7 @@ final class AppModel {
             return
         }
         var link = URLComponents()
-        link.scheme = "bridgedrop"
+        link.scheme = "kernport"
         link.host = "clip"
         var items = [
             URLQueryItem(name: "port", value: String(ClipboardServer.port)),
@@ -494,7 +494,7 @@ final class AppModel {
         return removedPhoneNames.contains { $0.caseInsensitiveCompare(trimmed) == .orderedSame }
     }
 
-    /// Paired phones that are on the network right now. A BridgeDrop phone wins
+    /// Paired phones that are on the network right now. A Kernport phone wins
     /// over a Quick Share advertisement of the same name.
     var myDevices: [RemoteDevice] {
         var rows: [RemoteDevice] = []
@@ -664,7 +664,7 @@ final class AppModel {
         scheduleConnectTimeout(for: device)
     }
 
-    /// A paired phone receives through the BridgeDrop app, not Quick Share.
+    /// A paired phone receives through the Kernport app, not Quick Share.
     private func sendToCompanion(_ device: RemoteDevice) {
         guard let host = device.companionHost, let port = device.companionPort else { return }
         let files = stagedFiles
@@ -758,7 +758,7 @@ extension AppModel: BridgeDropServiceDelegate {
             visibilityFailed = false
         } else if wantsVisible {
             // Dropped out from under us. Come back without asking the user
-            // to open BridgeDrop and switch to Receive again.
+            // to open Kernport and switch to Receive again.
             restartAdvertising()
             scheduleVisibilityTimeout()
         }

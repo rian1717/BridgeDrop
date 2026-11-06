@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "BridgeDropClip"
+rootProject.name = "Kernport"
 include(":app")

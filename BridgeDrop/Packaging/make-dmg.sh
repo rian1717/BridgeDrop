@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# Package BridgeDrop.app into a distributable .dmg.
+# Package Kernport.app into a distributable .dmg.
 #
-# A disk image rather than a .pkg installer: BridgeDrop is a single self-contained
+# A disk image rather than a .pkg installer: Kernport is a single self-contained
 # .app with no privileged components, no LaunchDaemon and nothing to write
 # outside its own bundle, so there is nothing for an installer to do that
 # dragging to /Applications doesn't already do. `hdiutil` ships with macOS,
@@ -13,19 +13,19 @@ set -euo pipefail
 CONFIG="${1:-release}"
 HERE="$(cd "$(dirname "$0")" && pwd)"
 APP_DIR="$(dirname "$HERE")"
-APP="$APP_DIR/build/BridgeDrop.app"
-OUT="$APP_DIR/build/BridgeDrop-macOS.dmg"
+APP="$APP_DIR/build/Kernport.app"
+OUT="$APP_DIR/build/Kernport-macOS.dmg"
 
 # Always package what the current source produces. Reusing whatever happens to
 # be sitting in build/ is how a release ends up shipping a binary that doesn't
 # match the commit it claims.
-if [[ "${BRIDGEDROP_SKIP_BUILD:-0}" != "1" ]]; then
+if [[ "${KERNPORT_SKIP_BUILD:-0}" != "1" ]]; then
   "$HERE/build-app.sh" "$CONFIG"
 fi
 
 PLIST="$APP/Contents/Info.plist"
 BUILD_NUMBER="$(/usr/libexec/PlistBuddy -c "Print :CFBundleVersion" "$PLIST")"
-GIT_COMMIT="$(/usr/libexec/PlistBuddy -c "Print :BridgeDropGitCommit" "$PLIST")"
+GIT_COMMIT="$(/usr/libexec/PlistBuddy -c "Print :KernportGitCommit" "$PLIST")"
 VERSION="$(/usr/libexec/PlistBuddy -c "Print :CFBundleShortVersionString" "$PLIST")"
 
 echo "▶︎ Staging disk image contents…"
@@ -40,7 +40,7 @@ echo "▶︎ Building ${OUT}…"
 rm -f "$OUT"
 # UDZO = zlib-compressed, read-only: the standard for distribution.
 hdiutil create \
-    -volname "BridgeDrop" \
+    -volname "Kernport" \
     -srcfolder "$STAGE" \
     -format UDZO \
     -ov -quiet \
@@ -49,7 +49,7 @@ hdiutil create \
 SIZE="$(du -h "$OUT" | cut -f1 | tr -d ' ')"
 echo "✓ Built $OUT"
 echo "  VERSION $VERSION · BUILD $BUILD_NUMBER · $GIT_COMMIT · $SIZE"
-if [[ "${BRIDGEDROP_SKIP_BUILD:-0}" != "1" ]]; then
+if [[ "${KERNPORT_SKIP_BUILD:-0}" != "1" ]]; then
   echo
   echo "  Development DMG: ad-hoc signed and not notarized."
   echo "  Use Packaging/release.sh for a public Developer ID release."

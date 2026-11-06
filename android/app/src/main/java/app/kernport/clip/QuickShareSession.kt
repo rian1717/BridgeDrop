@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -21,7 +21,7 @@ import javax.crypto.spec.SecretKeySpec
 /**
  * Speaks Quick Share's receive side. The Mac already browses
  * `_FC9F5ED42C8A._tcp` and sends through this handshake, so the phone can
- * stay inside BridgeDrop and still show up as a receiver.
+ * stay inside Kernport and still show up as a receiver.
  */
 class QuickShareSession(
     private val socket: Socket,

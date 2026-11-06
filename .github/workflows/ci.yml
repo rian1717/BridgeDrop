@@ -28,5 +28,5 @@ jobs:
         run: Packaging/build-app.sh release
       - name: Validate bundle
         run: |
-          plutil -lint build/BridgeDrop.app/Contents/Info.plist
-          codesign --verify --deep --strict build/BridgeDrop.app
+          plutil -lint build/Kernport.app/Contents/Info.plist
+          codesign --verify --deep --strict build/Kernport.app

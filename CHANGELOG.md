@@ -1,7 +1,13 @@
 # Changelog
 
 All notable changes follow [Keep a Changelog](https://keepachangelog.com/).
-BridgeDrop uses semantic versioning after the first stable release.
+Kernport uses semantic versioning after the first stable release.
+
+## [0.2.0] - 2026-11-07
+
+### Changed
+
+- The product name is Kernport. The Mac bundle id is `app.kernport.mac`, the Android application id is `app.kernport.clip`, and nearby discovery uses `_kernport._tcp`. Phones that were paired before this version pair again.
 
 ## [Unreleased]
 

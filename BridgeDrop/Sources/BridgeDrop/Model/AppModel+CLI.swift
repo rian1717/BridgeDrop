@@ -2,7 +2,7 @@ import Foundation
 import UserNotifications
 
 /// Localhost control API endpoints, plus the debug hooks that only exist
-/// under BRIDGEDROP_MOCK. Kept apart from the model's own state machine.
+/// under KERNPORT_MOCK. Kept apart from the model's own state machine.
 extension AppModel {
     // MARK: Finder share extension
 
@@ -80,7 +80,7 @@ extension AppModel {
         }
     }
 
-    // MARK: Debug (BRIDGEDROP_MOCK only — see ControlServer's /debug/* gating)
+    // MARK: Debug (KERNPORT_MOCK only — see ControlServer's /debug/* gating)
 
     /// Synthesizes an incoming request as if it had just arrived over the
     /// network, exercising the exact same path a real one takes — explicit

@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import android.accessibilityservice.AccessibilityService
 import android.accessibilityservice.AccessibilityServiceInfo
@@ -14,7 +14,7 @@ import android.widget.EditText
 
 /**
  * HyperOS does not update the clipboard for a background app, which is why a
- * copy only arrived after BridgeDrop was opened. The words are sent when the
+ * copy only arrived after Kernport was opened. The words are sent when the
  * user taps Copy, from WhatsApp, Chrome, or anywhere else. Selecting text
  * does not send it.
  */
@@ -59,7 +59,7 @@ class ClipboardAccessibilityService : AccessibilityService() {
         serviceInfo = info
 
         val canRead = info.canRetrieveWindowContent
-        getSharedPreferences("bridgedrop-clip", MODE_PRIVATE).edit()
+        getSharedPreferences("kernport-clip", MODE_PRIVATE).edit()
             .putBoolean("canReadScreen", canRead)
             .apply()
         if (!canRead) {

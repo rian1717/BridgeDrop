@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.BridgeDrop" parent="Theme.Material3.Light.NoActionBar">
+    <style name="Theme.Kernport" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/orange</item>
         <item name="colorOnPrimary">@android:color/white</item>
         <item name="colorSurface">@color/card</item>
@@ -9,17 +9,17 @@
         <item name="android:navigationBarColor">@color/bg</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:windowLightNavigationBar">true</item>
-        <item name="materialButtonStyle">@style/Widget.BridgeDrop.Button</item>
+        <item name="materialButtonStyle">@style/Widget.Kernport.Button</item>
     </style>
 
-    <style name="Theme.BridgeDrop.Splash" parent="Theme.SplashScreen">
+    <style name="Theme.Kernport.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/navy</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
         <item name="windowSplashScreenIconBackgroundColor">@color/navy</item>
-        <item name="postSplashScreenTheme">@style/Theme.BridgeDrop</item>
+        <item name="postSplashScreenTheme">@style/Theme.Kernport</item>
     </style>
 
-    <style name="Widget.BridgeDrop.Button" parent="Widget.Material3.Button">
+    <style name="Widget.Kernport.Button" parent="Widget.Material3.Button">
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:minHeight">56dp</item>
@@ -39,23 +39,23 @@
         <item name="android:textColor">@android:color/white</item>
     </style>
 
-    <style name="Widget.BridgeDrop.Button.Quiet" parent="Widget.BridgeDrop.Button">
+    <style name="Widget.Kernport.Button.Quiet" parent="Widget.Kernport.Button">
         <item name="backgroundTint">@color/quiet</item>
         <item name="android:textColor">@color/ink</item>
     </style>
 
-    <style name="Widget.BridgeDrop.Button.Danger" parent="Widget.BridgeDrop.Button">
+    <style name="Widget.Kernport.Button.Danger" parent="Widget.Kernport.Button">
         <item name="backgroundTint">@color/danger_fill</item>
         <item name="android:textColor">@color/danger</item>
     </style>
 
-    <style name="Text.BridgeDrop.CardTitle" parent="TextAppearance.Material3.TitleLarge">
+    <style name="Text.Kernport.CardTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textColor">@color/ink</item>
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Text.BridgeDrop.Help" parent="TextAppearance.Material3.BodyMedium">
+    <style name="Text.Kernport.Help" parent="TextAppearance.Material3.BodyMedium">
         <item name="android:textColor">@color/muted</item>
         <item name="android:textSize">15sp</item>
         <item name="android:lineSpacingExtra">2dp</item>

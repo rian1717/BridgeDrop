@@ -100,12 +100,12 @@ struct SettingsView: View {
                     subtitle: "Stay ready to receive. You do not switch to Receive each time.",
                     isOn: Binding(get: { model.startVisible },
                                   set: { model.setStartVisible($0) })),
-                // Named for what it is: a local HTTP server. The bridgedrop command
+                // Named for what it is: a local HTTP server. The kernport command
                 // is one client of it, not the whole story.
                 ServiceToggle(
                     id: "api",
                     title: "Local API server",
-                    subtitle: "Lets the bridgedrop command drive the app.",
+                    subtitle: "Lets the kernport command drive the app.",
                     help: "Serves 127.0.0.1:\(String(ControlServer.port)). Anything running as you can then send any file it can read.",
                     isOn: Binding(get: { model.controlAPIEnabled },
                                   set: { model.setControlAPIEnabled($0) }))
@@ -134,12 +134,12 @@ struct SettingsView: View {
                                 Text("Pairing code").primaryStyle()
                                 Text(model.clipboardPairCodeSpaced)
                                     .font(.system(size: 22, weight: .semibold, design: .monospaced))
-                                Text("On the phone, open BridgeDrop and tap this Mac. The Mac asks you to allow it. Scan this code if the Mac does not appear.")
+                                Text("On the phone, open Kernport and tap this Mac. The Mac asks you to allow it. Scan this code if the Mac does not appear.")
                                     .secondaryStyle()
                             }
                         }
                     }
-                    Text("Then turn on clipboard access on the phone. If Android says that setting is restricted, open the BridgeDrop app page and choose Allow restricted settings. iPhone copies already paste through Apple Handoff when both devices use the same Apple ID.")
+                    Text("Then turn on clipboard access on the phone. If Android says that setting is restricted, open the Kernport app page and choose Allow restricted settings. iPhone copies already paste through Apple Handoff when both devices use the same Apple ID.")
                         .secondaryStyle()
                 }
             }

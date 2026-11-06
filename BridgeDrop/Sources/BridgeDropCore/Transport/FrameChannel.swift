@@ -50,7 +50,7 @@ public actor FrameChannel {
         }
     }
 
-    private static let queue = DispatchQueue(label: "com.bridgedrop.frame-channel", qos: .userInitiated)
+    private static let queue = DispatchQueue(label: "com.kernport.frame-channel", qos: .userInitiated)
 
     // MARK: Receiving
 

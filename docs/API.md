@@ -1,43 +1,43 @@
-# BridgeDrop control API + `bridgedrop` CLI
+# Kernport control API + `kernport` CLI
 
-A guide for humans **and agents** to drive BridgeDrop (send/receive files with nearby
+A guide for humans **and agents** to drive Kernport (send/receive files with nearby
 Android devices) from the command line or over HTTP.
 
 ## Prerequisites
-- The **BridgeDrop.app must be running** (it hosts the API). It's a menu-bar app;
+- The **Kernport.app must be running** (it hosts the API). It's a menu-bar app;
   launching it once is enough — it keeps running in the background.
-- The API must be **enabled**: BridgeDrop > Settings > Automation > "Allow the
-  bridgedrop command line". It is **off by default** — while on, anything running
-  under your account can ask BridgeDrop to send any file it can read to a nearby
+- The API must be **enabled**: Kernport > Settings > Automation > "Allow the
+  kernport command line". It is **off by default** — while on, anything running
+  under your account can ask Kernport to send any file it can read to a nearby
   device.
 - The API is **localhost-only** (`http://127.0.0.1:47821`), bound to `127.0.0.1`.
-- Every request needs a bearer token, read from `~/.config/bridgedrop/token`
+- Every request needs a bearer token, read from `~/.config/kernport/token`
   (created by the app on first launch; file mode `0600`).
 
 ## CLI (recommended for agents)
 
 ```bash
-bridgedrop list [--json]                 # devices currently visible for sending
-bridgedrop send <file>... --to <name>    # send file(s); blocks until done
-bridgedrop status [--json]               # active/recent transfers
-bridgedrop --help
+kernport list [--json]                 # devices currently visible for sending
+kernport send <file>... --to <name>    # send file(s); blocks until done
+kernport status [--json]               # active/recent transfers
+kernport --help
 ```
 
 - `--json` prints raw JSON (parse this). Without it, output is human-formatted.
-- `--to` takes a device **name** (from `bridgedrop list`) or its `id`.
-- `bridgedrop send` **blocks until the transfer completes**, exits **0** on success,
+- `--to` takes a device **name** (from `kernport list`) or its `id`.
+- `kernport send` **blocks until the transfer completes**, exits **0** on success,
   non-zero on failure (prints `✗ Failed: <reason>` to stderr).
 - Paths may be relative or use `~`; they're resolved to absolute before sending.
 
 ### Agent recipe
-1. `bridgedrop list --json` → parse the array, pick a device by `name`.
-2. `bridgedrop send /abs/path/file.jpg --to "<name>" --json` → check `.ok == true`.
+1. `kernport list --json` → parse the array, pick a device by `name`.
+2. `kernport send /abs/path/file.jpg --to "<name>" --json` → check `.ok == true`.
    The response also includes `.pin` (the verification code shown on the phone).
 
 ## HTTP API (for other languages / direct use)
 
 Base URL `http://127.0.0.1:47821`. Header on every request:
-`Authorization: Bearer $(cat ~/.config/bridgedrop/token)`
+`Authorization: Bearer $(cat ~/.config/kernport/token)`
 
 | Method | Path | Body | Response |
 |--------|------|------|----------|
@@ -50,7 +50,7 @@ Base URL `http://127.0.0.1:47821`. Header on every request:
 
 ### Examples
 ```bash
-TOKEN=$(cat ~/.config/bridgedrop/token)
+TOKEN=$(cat ~/.config/kernport/token)
 curl -s -H "Authorization: Bearer $TOKEN" http://127.0.0.1:47821/devices
 
 curl -s -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
@@ -74,4 +74,4 @@ curl -s -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
 - Device `id`s can change between sessions; prefer matching by `name`.
 - `/send` reuses the app's send flow, so an in-progress CLI send also shows in
   the app window.
-- If `bridgedrop` reports it can't reach the app, launch BridgeDrop.app and retry.
+- If `kernport` reports it can't reach the app, launch Kernport.app and retry.

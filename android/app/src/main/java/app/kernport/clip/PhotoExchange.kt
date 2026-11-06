@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
@@ -7,7 +7,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 /**
- * Original-photo transfer between BridgeDrop on Android and BridgeDrop on iPhone.
+ * Original-photo transfer between Kernport on Android and Kernport on iPhone.
  * The bytes are stored as sent. Nothing recompresses them.
  */
 object PhotoExchange {
@@ -99,7 +99,7 @@ object PhotoExchange {
     private fun photo(request: Incoming, token: String): Decision {
         val auth = request.headers["authorization"].orEmpty()
         if (token.length < 32 || auth != "Bearer $token") return Decision(401, """{"error":"pair"}""")
-        val raw = request.headers["x-bridgedrop-name"].orEmpty()
+        val raw = request.headers["x-kernport-name"].orEmpty()
         val name = java.net.URLDecoder.decode(raw, "UTF-8").substringAfterLast('/').substringAfterLast('\\').ifBlank { "photo" }
         val type = request.headers["content-type"]?.substringBefore(";")?.trim().orEmpty().ifBlank { "application/octet-stream" }
         if (request.body.isEmpty()) return Decision(400, """{"error":"empty"}""")

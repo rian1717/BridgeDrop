@@ -1,4 +1,4 @@
-package app.bridgedrop.clip
+package app.kernport.clip
 
 import android.content.BroadcastReceiver
 import android.content.Context

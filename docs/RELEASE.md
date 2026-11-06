@@ -13,8 +13,8 @@
 ## Build and notarize
 
 ```bash
-export BRIDGEDROP_SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)"
-export BRIDGEDROP_NOTARY_PROFILE="bridgedrop-notary"
+export KERNPORT_SIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)"
+export KERNPORT_NOTARY_PROFILE="kernport-notary"
 BridgeDrop/Packaging/release.sh
 ```
 

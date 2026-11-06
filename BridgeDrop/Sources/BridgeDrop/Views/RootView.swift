@@ -83,7 +83,7 @@ struct RootView: View {
             })
     }
 
-    private var header: some View { WindowHeader(title: "BridgeDrop") }
+    private var header: some View { WindowHeader(title: "Kernport") }
 
 }
 

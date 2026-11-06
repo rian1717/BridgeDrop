@@ -2,9 +2,9 @@ import Foundation
 import Network
 import Security
 
-/// A tiny localhost-only JSON API so a `bridgedrop` CLI (or any tool/AI) can drive
+/// A tiny localhost-only JSON API so a `kernport` CLI (or any tool/AI) can drive
 /// the running app: list visible devices and send files. Bound to loopback and
-/// guarded by a per-machine token in ~/.config/bridgedrop/token.
+/// guarded by a per-machine token in ~/.config/kernport/token.
 ///
 /// Endpoints:
 ///   GET  /devices                          → [{name,id,type,trusted}]
@@ -14,12 +14,12 @@ import Security
 @MainActor
 final class ControlServer {
     nonisolated static let port: UInt16 = 47821
-    nonisolated static let finderShareSecret = "bridgedrop-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234"
+    nonisolated static let finderShareSecret = "kernport-finder-4A5E7C91-5F0B-4D38-AE7A-8F0D81B9A234"
     /// Gates the /debug/* routes on two independent conditions. `#if DEBUG`
     /// so a release build cannot compile it true whatever the environment
-    /// says at launch; BRIDGEDROP_MOCK so it is off in ordinary debug runs.
+    /// says at launch; KERNPORT_MOCK so it is off in ordinary debug runs.
     #if DEBUG
-    nonisolated static let debugEndpointsEnabled = ProcessInfo.processInfo.environment["BRIDGEDROP_MOCK"] != nil
+    nonisolated static let debugEndpointsEnabled = ProcessInfo.processInfo.environment["KERNPORT_MOCK"] != nil
     #else
     nonisolated static let debugEndpointsEnabled = false
     #endif
@@ -45,7 +45,7 @@ final class ControlServer {
         let localPort = NWEndpoint.Port(rawValue: Self.port) ?? .any
         params.requiredLocalEndpoint = .hostPort(host: .ipv4(.loopback), port: localPort)
         guard let l = try? NWListener(using: params) else {
-            NSLog("BridgeDrop control server: could not bind port \(Self.port)")
+            NSLog("Kernport control server: could not bind port \(Self.port)")
             return
         }
         listener = l
@@ -128,7 +128,7 @@ final class ControlServer {
         // distributed notifications from their sandbox. This loopback-only
         // route hands the user-selected files to the already-authorized app.
         if case ("POST", "/finder-send") = (req.method, req.path) {
-            guard Self.constantTimeEqual(req.headers["x-bridgedrop-finder"] ?? "", Self.finderShareSecret) else {
+            guard Self.constantTimeEqual(req.headers["x-kernport-finder"] ?? "", Self.finderShareSecret) else {
                 respond(Self.json(401, ["error": "unauthorized"])); return
             }
             guard let obj = try? JSONSerialization.jsonObject(with: req.body) as? [String: Any],
@@ -145,7 +145,7 @@ final class ControlServer {
         }
 
         if case ("POST", "/finder-progress") = (req.method, req.path) {
-            guard Self.constantTimeEqual(req.headers["x-bridgedrop-finder"] ?? "", Self.finderShareSecret) else {
+            guard Self.constantTimeEqual(req.headers["x-kernport-finder"] ?? "", Self.finderShareSecret) else {
                 respond(Self.json(401, ["error": "unauthorized"])); return
             }
             let obj = (try? JSONSerialization.jsonObject(with: req.body) as? [String: Any]) ?? [:]
@@ -181,7 +181,7 @@ final class ControlServer {
                 respond(Self.json(result.ok ? 200 : 502,
                                   ["ok": result.ok, "pin": result.pin as Any, "error": result.error as Any]))
             }
-        // Debug-only: exist only under BRIDGEDROP_MOCK, so this never ships reachable
+        // Debug-only: exist only under KERNPORT_MOCK, so this never ships reachable
         // in a real build. Lets an incoming-request/notification round trip
         // be tested with one `curl` call instead of a manual GUI run —
         // reopening a closed window and checking for a system notification
@@ -235,7 +235,7 @@ final class ControlServer {
     }
 
     static func loadOrCreateToken() -> String {
-        let dir = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".config/bridgedrop")
+        let dir = FileManager.default.homeDirectoryForCurrentUser.appendingPathComponent(".config/kernport")
         let file = dir.appendingPathComponent("token")
         if let existing = try? String(contentsOf: file, encoding: .utf8).trimmingCharacters(in: .whitespacesAndNewlines),
            existing.count >= 32 {

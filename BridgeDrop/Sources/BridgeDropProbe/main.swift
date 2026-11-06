@@ -10,7 +10,7 @@ struct BridgeDropProbe {
         do {
             try await run(Array(CommandLine.arguments.dropFirst()))
         } catch {
-            FileHandle.standardError.write(Data("bridgedrop-probe: \(error)\n".utf8))
+            FileHandle.standardError.write(Data("BridgeDropProbe: \(error)\n".utf8))
             Foundation.exit(1)
         }
     }
@@ -25,7 +25,7 @@ struct BridgeDropProbe {
             for: .downloadsDirectory, in: .userDomainMask).first
             ?? FileManager.default.temporaryDirectory
         let engine = BridgeDropEngine(
-            deviceName: Host.current().localizedName ?? "BridgeDrop Mac",
+            deviceName: Host.current().localizedName ?? "Kernport Mac",
             receiveDirectory: downloads)
 
         switch command {
@@ -191,11 +191,11 @@ struct BridgeDropProbe {
 
     private static func printUsage() {
         print("""
-        BridgeDrop real-device protocol probe
+        Kernport real-device protocol probe
 
-          bridgedrop-probe discover [seconds]
-          bridgedrop-probe receive [--directory PATH] [--timeout SECONDS] [--accept]
-          bridgedrop-probe send FILE... --to DEVICE [--timeout SECONDS]
+          swift run BridgeDropProbe discover [seconds]
+          swift run BridgeDropProbe receive [--directory PATH] [--timeout SECONDS] [--accept]
+          swift run BridgeDropProbe send FILE... --to DEVICE [--timeout SECONDS]
 
         The packaged app is required if macOS denies local-network access to a
         bare terminal binary. --accept is intentionally explicit.

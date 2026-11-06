@@ -1,4 +1,4 @@
-<h1 align="center">BridgeDrop</h1>
+<h1 align="center">Kernport</h1>
 
 <p align="center">
   Send a file from a Mac to an Android phone, or the other way,<br>
@@ -13,20 +13,20 @@
 </p>
 
 <p align="center">
-  <img src="docs/screenshots/send.jpg" width="46%" alt="BridgeDrop Send: nearby devices and a live transfer list">
+  <img src="docs/screenshots/send.jpg" width="46%" alt="Kernport Send: nearby devices and a live transfer list">
   &nbsp;&nbsp;
-  <img src="docs/screenshots/receive.jpg" width="46%" alt="BridgeDrop Receive: visibility state, setup steps and transfer history">
+  <img src="docs/screenshots/receive.jpg" width="46%" alt="Kernport Receive: visibility state, setup steps and transfer history">
 </p>
 
 ---
 
-Your phone already shares with Quick Share. Your Mac shares with AirDrop. Those two do not see each other, so people send the file through a chat app and the photo gets smaller. BridgeDrop is the Mac app that speaks Quick Share, so the file stays full size and stays on your Wi-Fi.
+Your phone already shares with Quick Share. Your Mac shares with AirDrop. Those two do not see each other, so people send the file through a chat app and the photo gets smaller. Kernport is the Mac app that speaks Quick Share, so the file stays full size and stays on your Wi-Fi.
 
 Pair the Android phone once. After that it stays connected. You do not pair again for the next file, and you do not pair again for the next copy.
 
 An iPhone does not install anything. The Android phone shows a QR code. Safari opens it. The photo is the original file.
 
-Download the Mac app and the Android app from the [latest release](https://github.com/rian1717/BridgeDrop/releases/latest). You do not compile anything. Put the Mac app on the Mac, put the Android file on the phone, and keep both on the same Wi-Fi.
+Download the Mac app and the Android app from the [latest release](https://github.com/rian1717/Kernport/releases/tag/v0.2.0). You do not compile anything. Put the Mac app on the Mac, put the Android file on the phone, and keep both on the same Wi-Fi.
 
 ## Features
 
@@ -45,32 +45,32 @@ Download the Mac app and the Android app from the [latest release](https://githu
 
 Needs **macOS 26 or later**, an Android phone, and both devices on the same Wi-Fi.
 
-From the [latest release](https://github.com/rian1717/BridgeDrop/releases/latest), download:
+From the [latest release](https://github.com/rian1717/Kernport/releases/tag/v0.2.0), download:
 
-- **BridgeDrop-mac.zip** for the Mac
-- **BridgeDrop-android.apk** for the phone
+- **Kernport-mac.zip** for the Mac
+- **Kernport-android.apk** for the phone
 
 ### Mac
 
-1. Unzip `BridgeDrop-mac.zip`.
-2. Move **BridgeDrop** into **Applications**.
+1. Unzip `Kernport-mac.zip`.
+2. Move **Kernport** into **Applications**.
 3. Open it. macOS says it cannot check the developer, because this build is not notarized.
-4. Control-click **BridgeDrop** and choose **Open**, then choose **Open** again.
+4. Control-click **Kernport** and choose **Open**, then choose **Open** again.
 5. If macOS says the app is damaged, open Terminal and run:
 
 ```bash
-xattr -dr com.apple.quarantine /Applications/BridgeDrop.app
+xattr -dr com.apple.quarantine /Applications/Kernport.app
 ```
 
 Then control-click the app and choose **Open** again. The first launch may ask for Local Network. Allow it.
 
 ### Android
 
-1. Copy `BridgeDrop-android.apk` onto the phone and open it.
+1. Copy `Kernport-android.apk` onto the phone and open it.
 2. Allow installation from that source if Android asks.
 3. If Play Protect blocks it and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
 
-Open BridgeDrop on the Mac and on the phone. The phone shows the Mac. Tap the Mac, then tap **Allow** on the Mac. That pair happens once. After that, the phone stays connected.
+Open Kernport on the Mac and on the phone. The phone shows the Mac. Tap the Mac, then tap **Allow** on the Mac. That pair happens once. After that, the phone stays connected.
 
 ## Using it
 
@@ -95,11 +95,11 @@ the share sheet in Gallery or Files instead.
 copies already paste through Apple Handoff when both devices use the same
 Apple ID. For Android:
 
-1. On the Mac, open **BridgeDrop → Settings…** and turn on **Paste phone copies here**. Leave the QR code and the 8-digit code on screen.
-2. Install `BridgeDrop-android.apk` from the [latest release](https://github.com/rian1717/BridgeDrop/releases/latest). It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
-3. On the phone, scan the Mac's QR code and open it in BridgeDrop. Or type the 8-digit code and tap the Mac. Tapping the Mac without the code asks you to tap **Allow** once on the Mac. After that one pair, the phone stays connected.
-4. Tap **Turn on clipboard access**. If BridgeDrop is marked **Controlled by restricted setting**, open **Settings → Apps → BridgeDrop**, tap the three dots, and choose **Allow restricted settings**. Then go back to **Accessibility → Downloaded apps**, tap BridgeDrop, and turn it on.
-5. Tap **Allow this phone to keep BridgeDrop running**. On a Xiaomi phone that is Autostart. On a Samsung phone, keep BridgeDrop out of sleeping apps.
+1. On the Mac, open **Kernport → Settings…** and turn on **Paste phone copies here**. Leave the QR code and the 8-digit code on screen.
+2. Install `Kernport-android.apk` from the [latest release](https://github.com/rian1717/Kernport/releases/tag/v0.2.0). It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
+3. On the phone, scan the Mac's QR code and open it in Kernport. Or type the 8-digit code and tap the Mac. Tapping the Mac without the code asks you to tap **Allow** once on the Mac. After that one pair, the phone stays connected.
+4. Tap **Turn on clipboard access**. If Kernport is marked **Controlled by restricted setting**, open **Settings → Apps → Kernport**, tap the three dots, and choose **Allow restricted settings**. Then go back to **Accessibility → Downloaded apps**, tap Kernport, and turn it on.
+5. Tap **Allow this phone to keep Kernport running**. On a Xiaomi phone that is Autostart. On a Samsung phone, keep Kernport out of sleeping apps.
 6. Copy text, a picture, or a file on the phone, then press **⌘V** on the Mac.
 
 | | |
@@ -137,29 +137,29 @@ keys are generated fresh for every handshake, and the certificate frames that
 would carry a persistent identity aren't in the specification this is built
 from. The only thing a sender proves is the name it chose to advertise.
 
-BridgeDrop therefore never trusts a device name or automatically accepts native
+Kernport therefore never trusts a device name or automatically accepts native
 Quick Share traffic. Verify the PIN on both screens for every transfer.
 
 Received links are **saved as files, never opened**.
 
 ## Command line
 
-BridgeDrop can host a small JSON API on `127.0.0.1:47821` for scripting and
+Kernport can host a small JSON API on `127.0.0.1:47821` for scripting and
 automation. It is **off by default** — enable it in *Settings → Services*.
 
-> While it's on, anything running under your account can ask BridgeDrop to send any
+> While it's on, anything running under your account can ask Kernport to send any
 > file it can read to a nearby device. That's the point of the feature, and the
 > reason it's opt-in.
 
 ```bash
-ln -s "$(pwd)/BridgeDrop/Packaging/bridgedrop" /usr/local/bin/bridgedrop
+ln -s "$(pwd)/BridgeDrop/Packaging/kernport" /usr/local/bin/kernport
 
-bridgedrop list                                   # devices currently visible
-bridgedrop send ~/photo.jpg --to "Pixel 8 Pro"    # blocks; exit 0 on success
-bridgedrop status --json                          # machine-readable
+kernport list                                   # devices currently visible
+kernport send ~/photo.jpg --to "Pixel 8 Pro"    # blocks; exit 0 on success
+kernport status --json                          # machine-readable
 ```
 
-Requests are authenticated with a token in `~/.config/bridgedrop/token`. Full
+Requests are authenticated with a token in `~/.config/kernport/token`. Full
 endpoint reference: **[docs/API.md](docs/API.md)**.
 
 ## How it works
@@ -169,7 +169,7 @@ Views (SwiftUI)  ──observe──▶  AppModel  ──▶  BridgeDropService
                                                      │
                                           ┌──────────┴──────────┐
                                      MockService          BridgeDropEngine
-                              (BRIDGEDROP_MOCK=1)                 │
+                              (KERNPORT_MOCK=1)                 │
                                                     ┌───────────┴───────────┐
                                                Discovery              Transport
                                             mDNS · QR · TXT      framing · sessions
@@ -198,7 +198,7 @@ protocol details worth knowing.
 ```bash
 cd BridgeDrop
 BridgeDrop/Packaging/build-app.sh
-open BridgeDrop/build/BridgeDrop.app
+open BridgeDrop/build/Kernport.app
 ```
 
 The packaging step matters: real networking needs a proper `.app` bundle so
@@ -208,10 +208,10 @@ macOS will grant local-network access. A bare `swift run` binary can't get it.
 swift test                        # unit + protocol tests
 swift test --sanitize=thread      # concurrency
 cd BridgeDrop
-BRIDGEDROP_MOCK=1 swift run BridgeDrop    # UI work without a phone
+KERNPORT_MOCK=1 swift run BridgeDrop    # UI work without a phone
 ```
 
-`BRIDGEDROP_MOCK=1` runs a simulated engine that drives every UI state — devices, PINs,
+`KERNPORT_MOCK=1` runs a simulated engine that drives every UI state — devices, PINs,
 progress, completion — with no network at all. The screenshots above were taken
 with it.
 

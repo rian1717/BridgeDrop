@@ -25,7 +25,7 @@ final class AdvertisingIntegrationTests: XCTestCase {
 
     private func makeAdvertiser() -> ServiceAdvertiser {
         let endpointID: [UInt8] = Array("ab12".utf8)
-        let a = ServiceAdvertiser(deviceName: "BridgeDrop Test \(UUID().uuidString.prefix(4))",
+        let a = ServiceAdvertiser(deviceName: "Kernport Test \(UUID().uuidString.prefix(4))",
                                   endpointID: endpointID)
         advertiser = a
         return a
@@ -88,7 +88,7 @@ final class AdvertisingIntegrationTests: XCTestCase {
 
 final class QRCodeSessionTests: XCTestCase {
 
-    func testURLIsTheFormAndroidRoutesToBridgeDrop() {
+    func testURLIsTheFormAndroidRoutesToKernport() {
         let session = QRCodeSession()
         XCTAssertTrue(session.url.hasPrefix("https://quickshare.google/qrcode#key="),
                       "got \(session.url)")
