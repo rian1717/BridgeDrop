@@ -26,7 +26,7 @@ Pair the Android phone once. After that it stays connected. You do not pair agai
 
 An iPhone does not install anything. The Android phone shows a QR code. Safari opens it. The photo is the original file.
 
-There is no downloadable phone install file in this repository yet. The Android app is source you build yourself. The Mac app is not notarized yet, so macOS will warn if you give the build to someone else.
+Download the Mac app and the Android app from the [latest release](https://github.com/rian1717/BridgeDrop/releases/latest). You do not compile anything. Put the Mac app on the Mac, put the Android file on the phone, and keep both on the same Wi-Fi.
 
 ## Features
 
@@ -43,11 +43,34 @@ There is no downloadable phone install file in this repository yet. The Android 
 
 ## Install
 
-Needs **macOS 26 or later**, and both devices on the same Wi-Fi network.
+Needs **macOS 26 or later**, an Android phone, and both devices on the same Wi-Fi.
 
-The project is currently a development preview. Public releases will be
-Developer ID signed and notarized. Until then, build the app locally using the
-instructions below.
+From the [latest release](https://github.com/rian1717/BridgeDrop/releases/latest), download:
+
+- **BridgeDrop-mac.zip** for the Mac
+- **BridgeDrop-android.apk** for the phone
+
+### Mac
+
+1. Unzip `BridgeDrop-mac.zip`.
+2. Move **BridgeDrop** into **Applications**.
+3. Open it. macOS says it cannot check the developer, because this build is not notarized.
+4. Control-click **BridgeDrop** and choose **Open**, then choose **Open** again.
+5. If macOS says the app is damaged, open Terminal and run:
+
+```bash
+xattr -dr com.apple.quarantine /Applications/BridgeDrop.app
+```
+
+Then control-click the app and choose **Open** again. The first launch may ask for Local Network. Allow it.
+
+### Android
+
+1. Copy `BridgeDrop-android.apk` onto the phone and open it.
+2. Allow installation from that source if Android asks.
+3. If Play Protect blocks it and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
+
+Open BridgeDrop on the Mac and on the phone. The phone shows the Mac. Tap the Mac, then tap **Allow** on the Mac. That pair happens once. After that, the phone stays connected.
 
 ## Using it
 
@@ -73,7 +96,7 @@ copies already paste through Apple Handoff when both devices use the same
 Apple ID. For Android:
 
 1. On the Mac, open **BridgeDrop → Settings…** and turn on **Paste phone copies here**. Leave the QR code and the 8-digit code on screen.
-2. Install the BridgeDrop phone app. It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
+2. Install `BridgeDrop-android.apk` from the [latest release](https://github.com/rian1717/BridgeDrop/releases/latest). It is not on the Play Store. If Play Protect says the app is blocked and the only button is **OK**, open the Play Store, tap your profile, open **Play Protect**, tap the gear, and turn off **Improve harmful app detection**. If that switch is missing, turn off **Scan apps with Play Protect**. Install the app, then turn the switch back on.
 3. On the phone, scan the Mac's QR code and open it in BridgeDrop. Or type the 8-digit code and tap the Mac. Tapping the Mac without the code asks you to tap **Allow** once on the Mac. After that one pair, the phone stays connected.
 4. Tap **Turn on clipboard access**. If BridgeDrop is marked **Controlled by restricted setting**, open **Settings → Apps → BridgeDrop**, tap the three dots, and choose **Allow restricted settings**. Then go back to **Accessibility → Downloaded apps**, tap BridgeDrop, and turn it on.
 5. Tap **Allow this phone to keep BridgeDrop running**. On a Xiaomi phone that is Autostart. On a Samsung phone, keep BridgeDrop out of sleeping apps.
